@@ -1,0 +1,5 @@
+---
+- hosts: all
+  tasks:
+    - name: hello
+      shell: exit 1 # Must be failed for test of error handling

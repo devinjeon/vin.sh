@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+playbook=$1
+if [ -z "$playbook" ]; then
+    echo "ERROR! Please input playbook path: ./test.sh <playbook_path>"
+    exit 1
+fi
+
+# Pull docker image
+image='devinjeon/vin.sh-test'
+if ! docker images | grep -q "$image"; then
+    echo "Pulling docker image: $image ..."
+    docker pull "$image"
+fi
+
+# Remove docker container already running
+container='vin.sh-test'
+if docker ps -a | grep -q "$container"; then
+    echo "Removing docker container already running: $container ..."
+    docker rm -f "$container" 1> /dev/null
+fi
+
+# Run docker
+echo "Run docker container: $container ..."
+docker run -tid --name "$container" -p 22222:22 "$image" 1> /dev/null
+
+# Execute ansible playbook
+ansible-playbook -i "host-test.yml" "$playbook"

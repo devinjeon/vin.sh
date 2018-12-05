@@ -1,0 +1,15 @@
+all:
+  hosts:
+    localhost
+  vars:
+    # Please refer to the following files and links.
+    # * test-playbook.sh
+    # * Dockerhub: devinjeon/vin.sh-test(will be made as a Dockerfile later)
+    ansible_user: ubuntu
+    ansible_port: 22222
+    ansible_ssh_pass: "vin.sh-test"
+    # Ansible fails with following error in container
+    # stderr: "/bin/sh: 1: /usr/bin/python: not found"
+    # Replace python interpreter.
+    # "/usr/bin/python"(default) to "/usr/bin/env python3"
+    ansible_python_interpreter: /usr/bin/env python3

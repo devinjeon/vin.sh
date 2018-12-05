@@ -1,6 +1,6 @@
 # vin.sh
 
-It it my development environment on linux(ubuntu)
+It is my development environment on linux(ubuntu)
 
 The goal is to install my environment with just one command.
 

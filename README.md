@@ -1,22 +1,21 @@
 # vin.sh
 
-It is my development environment on linux(ubuntu)
+It is my development environment on linux(ubuntu).
 
-The goal is to install my environment with just one command.
+The goal is just one command installation with idempotent.
 
 ## Setup
 
-The script to install `vin.sh` is based on `Ansible`.
-
-Including `Ansible`, it requires some package to execute script for installing `vin.sh`
+* Set up dependencies before installing `vin.sh`.
+* The installation of `vin.sh` needs few packages including `Ansible`.
+* This command may be removed later for intergration into one command.
 
 ```
 $ ./setup
 ```
 
-## Usage
+## How to install `vin.sh` on current host.
 
-* Install `vin.sh` on current host.
 * If you want to install on another host, modify `host.yml`
 
 ```
@@ -25,15 +24,15 @@ $ ./run
 
 ## Test
 
-Before you actually install `vin.sh` on your host,
+Before applying `vin.sh` to your host,
 
-you can access to test docker container for checking installation.
+you can test installation and access to test docker container.
 
 ```
-# Step
+# Steps
 # 1. Run docker container for test
 # 2. Install `vin.sh` on the container
 $ ./test
-# 3. You can check result of installation by accessing docker container
+# 3. You can access to docker container
 $ sshpass -p 'vin.sh-test' ssh -p 22222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null localhost
 ```

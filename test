@@ -21,7 +21,7 @@ fi
 
 # Run docker
 echo "Run docker container: $container ..."
-docker run -tid --name "$container" -p 22222:22 "$image" 1> /dev/null
+docker run -tid --name "$container" -p 2222:22 "$image" 1> /dev/null
 
 # Execute ansible playbook
 ansible-playbook -i "host-test.yml" "$playbook"

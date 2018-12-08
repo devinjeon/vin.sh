@@ -6,7 +6,7 @@ all:
     # * test-playbook.sh
     # * Dockerhub: devinjeon/vin.sh-test(will be made as a Dockerfile later)
     ansible_user: ubuntu
-    ansible_port: 22222
+    ansible_port: 2222
     ansible_ssh_pass: "vin.sh-test"
     # Ansible fails with following error in container
     # stderr: "/bin/sh: 1: /usr/bin/python: not found"

@@ -34,5 +34,5 @@ you can test installation and access to test docker container.
 # 2. Install `vin.sh` on the container
 $ ./test
 # 3. You can access to docker container
-$ sshpass -p 'vin.sh-test' ssh -p 22222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null localhost
+$ sshpass -p 'vin.sh-test' ssh -p 22222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@localhost
 ```

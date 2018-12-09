@@ -5,20 +5,20 @@
     dest: /tmp/
     remote_src: yes
 
-- name: Copy shellcheck to /usr/bin/ (step 2/4) 
+- name: Install shellcheck - Copy shellcheck to /usr/bin/ (step 2/4)
   copy:
     src: /tmp/shellcheck-latest/shellcheck
     dest: /usr/bin/shellcheck
     remote_src: yes
   become: yes
 
-- name: Change mode of shellcheck binary file (step 3/4)
+- name: Install shellcheck - Change mode of shellcheck binary file (step 3/4)
   file:
     path: /usr/bin/shellcheck
     mode: 0755
   become: yes
 
-- name: Remove /tmp/shellcheck (step 4/4)
+- name: Install shellcheck - Remove /tmp/shellcheck (step 4/4)
   file:
     path: /tmp/shellcheck-latest
     state: absent

@@ -4,3 +4,4 @@
   - import_tasks: tasks/000-default-packages.yml
   - import_tasks: tasks/010-default-python-packages.yml
   - import_tasks: tasks/100-vim.yml
+  - import_tasks: tasks/110-shellcheck.yml

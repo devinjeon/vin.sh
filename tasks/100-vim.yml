@@ -1,0 +1,12 @@
+---
+- name: Install Vim - Add apt repositoiry (step 1/2)
+  apt_repository:
+    repo: ppa:jonathonf/vim
+  become: true
+
+- name: Install Vim - install vim (step 2/2)
+  apt:
+    name: vim
+    update_cache: yes
+    state: latest
+  become: true

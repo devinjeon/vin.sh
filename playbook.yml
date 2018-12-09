@@ -1,5 +1,4 @@
 ---
 - hosts: all
   tasks:
-    - name: hello
-      shell: exit 1 # Must be failed for test of error handling
+  - import_tasks: tasks/000-default-packages.yml

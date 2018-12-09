@@ -1,0 +1,43 @@
+---
+- name: Install default packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+    state: latest
+  vars:
+    packages:
+      - gnupg
+      - openssl
+      - git
+      - python3
+      - python-pip
+      - python3-pip
+      - libcurl4-gnutls-dev
+      - build-essential
+      - python-dev
+      - libpq-dev
+      - python-dev
+      - libxml2-dev
+      - libxslt1-dev
+      - libldap2-dev
+      - libsasl2-dev
+      - libffi-dev
+      - zip
+      - libsqlite3-dev
+      - yum
+      - sqlite3
+      - libreadline-dev
+      - bash-completion
+      - curl
+      - jq
+      - language-pack-ko
+      - rdate
+      - tmux
+      - file
+      - git
+      - python-setuptools
+      - ca-certificates
+      - tree
+      - htop
+      - libssl-dev
+  become: true

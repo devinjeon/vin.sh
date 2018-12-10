@@ -3,11 +3,14 @@
 set -euo pipefail
 
 install_ansible () {
+    echo "It requires to install 'Ansible'."
+    echo "Installing 'Ansible' ..."
     sudo apt update
     sudo apt -y install software-properties-common
     sudo apt-add-repository -y ppa:ansible/ansible
     sudo apt update
-    sudo apt -y install ansible
+    sudo apt -y install ansible && \
+        echo "'Ansible' installation complated."
 }
 
 # Install `ansible`

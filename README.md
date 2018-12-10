@@ -1,6 +1,6 @@
-![vinsh](vinsh.png)
-
-# vin.sh
+<p align="center">
+  <img src="https://github.com/devinjeon/vin.sh/blob/master/logo.png" alt="vin.sh logo" width="100%">
+</p>
 
 It is my development environment on linux(ubuntu).
 

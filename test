@@ -32,9 +32,10 @@ if [ -n "$(docker ps -q -f name="$container")" ]; then
     docker rm -f "$container" 1> /dev/null
 fi
 
+port=2223
 # Run docker
 echo "Run docker container: $container ..."
-docker run -tid --name "$container" -p 2222:22 "$image" 1> /dev/null
+docker run -tid --name "$container" -p "$port":22 "$image" 1> /dev/null
 
 # Execute ansible playbook
 
@@ -44,7 +45,7 @@ docker run -tid --name "$container" -p 2222:22 "$image" 1> /dev/null
 # "/usr/bin/python"(default) to "/usr/bin/env python3"
 
 ansible-playbook -i "localhost," -e "\
-    ansible_port='2222'\
+    ansible_port='$port'\
     ansible_user='ubuntu'\
     ansible_ssh_pass='vin.sh-test'\
     ansible_python_interpreter='/usr/bin/python3'"\

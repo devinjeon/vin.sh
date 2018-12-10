@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 # Install packages, if dependencies are not installed.
 install_sshpass () {
     echo "It requires to install 'sshpass'."
@@ -8,21 +10,24 @@ install_sshpass () {
     sudo apt -y install ssh && \
         echo "'sshpass' installation complated."
 }
-command -v sshpass || install_sshpass
+
+command -v sshpass > /dev/null || install_sshpass
 
 source install-ansible
+
 
 # Pull docker image for test
 # * Dockerhub: devinjeon/vin.sh-test(will be made as a Dockerfile later)
 image='devinjeon/vin.sh-test'
-if ! docker images | grep -q "$image"; then
+
+if [ -z "$(docker images -q "$image")" ]; then
     echo "Pulling docker image: $image ..."
     docker pull "$image"
 fi
 
 # Remove docker container already running
 container='vin.sh-test'
-if docker ps -a | grep -q "$container"; then
+if [ -n "$(docker ps -q -f name="$container")" ]; then
     echo "Removing docker container already running: $container ..."
     docker rm -f "$container" 1> /dev/null
 fi

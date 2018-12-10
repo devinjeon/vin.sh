@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 # Install packages, if dependencies are not installed.
 source install-ansible
 

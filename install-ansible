@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 install_ansible () {
     sudo apt update
     sudo apt -y install software-properties-common
-    sudo apt-add-repository ppa:ansible/ansible
+    sudo apt-add-repository -y ppa:ansible/ansible
     sudo apt update
     sudo apt -y install ansible
 }
 
 # Install `ansible`
-command -v ansible || install_ansible
+command -v ansible > /dev/null || install_ansible

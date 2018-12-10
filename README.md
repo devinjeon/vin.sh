@@ -1,4 +1,4 @@
-<center>![vinsh](vinsh.png)</center>
+![vinsh](vinsh.png)
 
 # vin.sh
 

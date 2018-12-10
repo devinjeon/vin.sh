@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
+# Install packages, if dependencies are not installed.
+source install-ansible
+
 ansible-playbook -i "localhost," --connection=local "playbook.yml" -K

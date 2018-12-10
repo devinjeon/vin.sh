@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-playbook=$1
-if [ -z "$playbook" ]; then
-    echo "ERROR! Please input playbook path: ./test.sh <playbook_path>"
-    exit 1
-fi
 
 
 # Pull docker image for test
@@ -37,4 +32,4 @@ ansible-playbook -i "localhost," -e "\
     ansible_user='ubuntu'\
     ansible_ssh_pass='vin.sh-test'\
     ansible_python_interpreter='/usr/bin/python3'"\
-    "$playbook"
+    "playbook.yml"

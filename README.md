@@ -1,3 +1,5 @@
+![vinsh](vinsh.png)
+
 # vin.sh
 
 It is my development environment on linux(ubuntu).

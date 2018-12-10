@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+install_ansible () {
+    sudo apt update
+    sudo apt -y install software-properties-common
+    sudo apt-add-repository ppa:ansible/ansible
+    sudo apt update
+    sudo apt -y install ansible
+}
+
+# Install `ansible`
+command -v ansible || install_ansible

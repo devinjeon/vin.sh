@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-# Install packages to connect test docker container by password
-sudo apt -y install sshpass
-
-# Install pip dependencies(ansible, ... etc)
-pip install -r requirements.txt

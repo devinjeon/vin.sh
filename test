@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 
 # Install packages, if dependencies are not installed.
+install_sshpass () {
+    echo "It requires to install 'sshpass'."
+    echo "Installing 'sshpass' ..."
+    sudo apt update
+    sudo apt -y install ssh && \
+        echo "'sshpass' installation complated."
+}
+command -v sshpass || install_sshpass
+
 source install-ansible
 
 # Pull docker image for test

@@ -5,7 +5,9 @@ if [ -z "$playbook" ]; then
     exit 1
 fi
 
-# Pull docker image
+
+# Pull docker image for test
+# * Dockerhub: devinjeon/vin.sh-test(will be made as a Dockerfile later)
 image='devinjeon/vin.sh-test'
 if ! docker images | grep -q "$image"; then
     echo "Pulling docker image: $image ..."
@@ -24,4 +26,15 @@ echo "Run docker container: $container ..."
 docker run -tid --name "$container" -p 2222:22 "$image" 1> /dev/null
 
 # Execute ansible playbook
-ansible-playbook -i "host-test.yml" "$playbook"
+
+# Ansible fails with following error in container
+# stderr: "/bin/sh: 1: /usr/bin/python: not found"
+# Replace python interpreter.
+# "/usr/bin/python"(default) to "/usr/bin/env python3"
+
+ansible-playbook -i "localhost," -e "\
+    ansible_port='2222'\
+    ansible_user='ubuntu'\
+    ansible_ssh_pass='vin.sh-test'\
+    ansible_python_interpreter='/usr/bin/python3'"\
+    "$playbook"

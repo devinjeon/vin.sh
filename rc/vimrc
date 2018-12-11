@@ -1,0 +1,34 @@
+" setting for encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp949,latin1
+
+syntax on " Enable highlighting syntax
+
+set nocp " not compatible with `vi`
+set nu " show line numbers
+set hls " hightlight search keywords
+set ruler " show current cursor location
+set history=1000 " history of vim command
+
+set expandtab " softtab(space)
+set tabstop=4 " tab size
+set sw=4 " tab size: shifting(`<<`, `>>`)
+set sts=4 " tab size: shifting(`<<`, `>>`)
+set autoindent
+
+" Plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'w0rp/ale' " Asynchronous Lint Engine
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " - NERDTree
+Plug 'Valloric/YouCompleteMe' " Auto complete / needed to run `install.py` at first
+Plug 'majutsushi/tagbar' " Tag bar
+Plug 'vim-scripts/Command-T' " Fast file navigation
+Plug 'sheerun/vim-polyglot' " Highlight many languages syntax
+Plug 'tpope/vim-commentary' " Add shortcut `gc[c]` to comment out
+Plug 'eugen0329/vim-esearch' " Async search and replace
+
+call plug#end()
+
+let g:ycm_python_binary_path = 'python'

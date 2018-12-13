@@ -1,22 +1,27 @@
 ---
-- name: Install Oh My Zsh - install zsh (step 1/4)
+- name: Install Oh My Zsh - install zsh (step 1/5)
   apt:
     name: zsh
     update_cache: yes
     state: latest
   become: true
 
-- name: Install Oh My Zsh - get current user name (step 2/4)
+- name: Install Oh My Zsh - get current user name (step 2/5)
   shell: whoami
   register: username
 
-- name: Install Oh My Zsh - set default shell to zsh (step 3/4)
+- name: Install Oh My Zsh - set default shell to zsh (step 3/5)
   user:
     name: "{{ username.stdout }}"
     shell: /usr/bin/zsh
   become: true
 
-- name: Install Oh My Zsh - download oh-my-zsh (step 4/4)
+- name: Install Oh My Zsh - download oh-my-zsh (step 4/5)
   git:
     repo: "https://github.com/robbyrussell/oh-my-zsh.git"
     dest: ~/.oh-my-zsh
+
+- name: Install Oh My Zsh - copy zshrc (step 5/5)
+  copy:
+    src: "{{ playbook_dir }}/rc/zshrc"
+    dest: ~/.zshrc

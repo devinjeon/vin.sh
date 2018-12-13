@@ -1,38 +1,59 @@
 ---
-- name: Install Oh My Zsh - install zsh (step 1/7)
+- name: Install Oh My Zsh - install zsh (step 1/11)
   apt:
     name: zsh
     update_cache: yes
     state: latest
   become: true
 
-- name: Install Oh My Zsh - get current user name (step 2/7)
+- name: Install Oh My Zsh - get current user name (step 2/11)
   shell: whoami
   register: username
 
-- name: Install Oh My Zsh - set default shell to zsh (step 3/7)
+- name: Install Oh My Zsh - set default shell to zsh (step 3/11)
   user:
     name: "{{ username.stdout }}"
     shell: /usr/bin/zsh
   become: true
 
-- name: Install Oh My Zsh - download oh-my-zsh (step 4/7)
+- name: Install Oh My Zsh - download oh-my-zsh (step 4/11)
   git:
     repo: "https://github.com/robbyrussell/oh-my-zsh.git"
     dest: ~/.oh-my-zsh
 
-- name: Install Oh My Zsh - make directory for zsh themes (step 5/7)
+- name: Install Oh My Zsh - make directory for zsh plugins (step 5/11)
+  file:
+    path: ~/.oh-my-zsh/custom/plugins
+    state: directory
+    recurse: yes
+
+- name: Install Oh My Zsh - install plugin `zsh-syntax-highlighting` (step 6/11)
+  git:
+    repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+- name: Install Oh My Zsh - install plugin `zsh-autosuggestion` (step 7/11)
+  git:
+    repo: "https://github.com/zsh-users/zsh-autosuggestion.git"
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestion
+
+- name: Install Oh My Zsh - install plugin `git-flow-completion` (step 8/11)
+  git:
+    repo: "https://github.com/zsh-users/git-flow-completion.git"
+    dest: ~/.oh-my-zsh/custom/plugins/git-flow-completion
+
+- name: Install Oh My Zsh - make directory for zsh themes (step 9/11)
   file:
     path: ~/.oh-my-zsh/custom/themes
     state: directory
     recurse: yes
 
-- name: Install Oh My Zsh - copy vin.zsh-theme (step 6/7)
+- name: Install Oh My Zsh - copy vin.zsh-theme (step 10/11)
   copy:
     src: "{{ playbook_dir }}/rc/vin.zsh-theme"
     dest: ~/.oh-my-zsh/custom/themes/vin.zsh-theme
 
-- name: Install Oh My Zsh - copy zshrc (step 7/7)
+- name: Install Oh My Zsh - copy zshrc (step 11/11)
   copy:
     src: "{{ playbook_dir }}/rc/zshrc"
     dest: ~/.zshrc

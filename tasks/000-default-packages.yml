@@ -34,7 +34,6 @@
       - rdate
       - tmux
       - file
-      - git
       - python-setuptools
       - ca-certificates
       - tree

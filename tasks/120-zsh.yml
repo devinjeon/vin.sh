@@ -1,27 +1,38 @@
 ---
-- name: Install Oh My Zsh - install zsh (step 1/5)
+- name: Install Oh My Zsh - install zsh (step 1/7)
   apt:
     name: zsh
     update_cache: yes
     state: latest
   become: true
 
-- name: Install Oh My Zsh - get current user name (step 2/5)
+- name: Install Oh My Zsh - get current user name (step 2/7)
   shell: whoami
   register: username
 
-- name: Install Oh My Zsh - set default shell to zsh (step 3/5)
+- name: Install Oh My Zsh - set default shell to zsh (step 3/7)
   user:
     name: "{{ username.stdout }}"
     shell: /usr/bin/zsh
   become: true
 
-- name: Install Oh My Zsh - download oh-my-zsh (step 4/5)
+- name: Install Oh My Zsh - download oh-my-zsh (step 4/7)
   git:
     repo: "https://github.com/robbyrussell/oh-my-zsh.git"
     dest: ~/.oh-my-zsh
 
-- name: Install Oh My Zsh - copy zshrc (step 5/5)
+- name: Install Oh My Zsh - make directory for zsh themes (step 5/7)
+  file:
+    path: ~/.oh-my-zsh/custom/themes
+    state: directory
+    recurse: yes
+
+- name: Install Oh My Zsh - copy vin.zsh-theme (step 6/7)
+  copy:
+    src: "{{ playbook_dir }}/rc/vin.zsh-theme"
+    dest: ~/.oh-my-zsh/custom/themes/vin.zsh-theme
+
+- name: Install Oh My Zsh - copy zshrc (step 7/7)
   copy:
     src: "{{ playbook_dir }}/rc/zshrc"
     dest: ~/.zshrc

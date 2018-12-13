@@ -43,9 +43,10 @@ docker run -tid --name "$container" -p "$port":22 "$image" 1> /dev/null
 # Replace python interpreter.
 # "/usr/bin/python"(default) to "/usr/bin/env python3"
 
+docker_password='vin.sh-test'
 ansible-playbook -i "localhost," -e "\
     ansible_port='$port'\
     ansible_user='ubuntu'\
-    ansible_ssh_pass='vin.sh-test'\
+    ansible_ssh_pass='$docker_password' \
     ansible_python_interpreter='/usr/bin/python3'"\
     "playbook.yml"

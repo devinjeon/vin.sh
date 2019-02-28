@@ -39,7 +39,7 @@
 
 - name: Install Oh My Zsh - install plugin `git-flow-completion` (step 8/11)
   git:
-    repo: "https://github.com/zsh-users/git-flow-completion.git"
+    repo: "https://github.com/bobthecow/git-flow-completion.git"
     dest: ~/.oh-my-zsh/custom/plugins/git-flow-completion
 
 - name: Install Oh My Zsh - make directory for zsh themes (step 9/11)

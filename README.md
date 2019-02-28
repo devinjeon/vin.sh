@@ -3,7 +3,7 @@
 </p>
 
 
-It is my development environment on linux(ubuntu).
+It is my development environment on Ubuntu 16.04+.
 
 The goal is just one command installation with idempotent.
 

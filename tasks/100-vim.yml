@@ -10,3 +10,8 @@
     update_cache: true
     state: latest
   become: true
+
+- name: Copy vimrc
+  copy:
+    src: "{{ playbook_dir }}/rc/vimrc"
+    dest: ~/.vimrc

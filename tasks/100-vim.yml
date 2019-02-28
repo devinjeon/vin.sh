@@ -29,3 +29,6 @@
 
 - name: Install plugins
   shell: vim --noplugin -c PlugInstall -c qa
+
+- name: Install YouCompleteMe
+  shell: ~/.vim/plugged/YouCompleteMe/install.py

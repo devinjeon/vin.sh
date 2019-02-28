@@ -2,7 +2,7 @@
 - name: Install Oh My Zsh - install zsh (step 1/11)
   apt:
     name: zsh
-    update_cache: yes
+    update_cache: true
     state: latest
   become: true
 
@@ -25,7 +25,7 @@
   file:
     path: ~/.oh-my-zsh/custom/plugins
     state: directory
-    recurse: yes
+    recurse: true
 
 - name: Install Oh My Zsh - install plugin `zsh-syntax-highlighting` (step 6/11)
   git:
@@ -46,7 +46,7 @@
   file:
     path: ~/.oh-my-zsh/custom/themes
     state: directory
-    recurse: yes
+    recurse: true
 
 - name: Install Oh My Zsh - copy vin.zsh-theme (step 10/11)
   copy:

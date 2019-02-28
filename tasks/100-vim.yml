@@ -7,6 +7,6 @@
 - name: Install Vim - install vim (step 2/2)
   apt:
     name: vim
-    update_cache: yes
+    update_cache: true
     state: latest
   become: true

@@ -3,20 +3,20 @@
   unarchive:
     src: https://storage.googleapis.com/shellcheck/shellcheck-latest.linux.x86_64.tar.xz
     dest: /tmp/
-    remote_src: yes
+    remote_src: true
 
 - name: Install shellcheck - Copy shellcheck to /usr/bin/ (step 2/4)
   copy:
     src: /tmp/shellcheck-latest/shellcheck
     dest: /usr/bin/shellcheck
-    remote_src: yes
-  become: yes
+    remote_src: true
+  become: true
 
 - name: Install shellcheck - Change mode of shellcheck binary file (step 3/4)
   file:
     path: /usr/bin/shellcheck
     mode: 0755
-  become: yes
+  become: true
 
 - name: Install shellcheck - Remove /tmp/shellcheck (step 4/4)
   file:

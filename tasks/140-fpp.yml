@@ -1,0 +1,27 @@
+---
+- name: Install fpp - ensure temporary directory (step 1/5)
+  file:
+    path: /tmp/fpp
+    state: directory
+
+- name: Install fpp - download and unarchive (step 2/5)
+  unarchive:
+    src: https://github.com/facebook/PathPicker/releases/download/0.7.2/fpp.0.7.2.tar.gz
+    dest: /tmp/fpp
+    remote_src: true
+
+- name: Install fpp - Copy fpp to /usr/share/fpp (step 3/5)
+  shell: cp -rf /tmp/fpp /usr/share/fpp
+  become: true
+
+- name: Install fpp - Create symbolic link (step 4/5)
+  file:
+    src: /usr/share/fpp/fpp
+    dest: /usr/bin/fpp
+    state: link
+  become: true
+
+- name: Install fpp - Remove /tmp/fpp (step 5/5)
+  file:
+    path: /tmp/fpp
+    state: absent

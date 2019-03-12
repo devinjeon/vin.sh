@@ -1,0 +1,8 @@
+---
+- name: Install docker (step 1/2)
+  shell: "wget -qO- https://get.docker.com/ | sh"
+  become: true
+
+- name: Install docker - Append user to docker group (step 2/2)
+  shell: "usermod -aG docker $USER"
+  become: true

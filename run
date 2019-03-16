@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
+
 set -euo pipefail
 
 # Install packages, if dependencies are not installed.
-source install-ansible
 
-ansible-playbook -i "localhost," --connection=local "playbook.yml" -K
+SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
+# shellcheck source=install-ansible
+source "$SCRIPT_DIR/install-ansible"
+
+
+ansible-playbook -i "localhost," --connection=local "$SCRIPT_DIR/playbook.yml" -K

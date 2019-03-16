@@ -1,0 +1,20 @@
+- name: Install tmux (step 1/4)
+  apt:
+    name: tmux
+    state: latest
+  become: true
+
+- name: Install tmux - copy tmux conf (step 2/4)
+  copy:
+    src: "{{ tmux_conf }}"
+    dest: ~/.tmux.conf
+
+- name: Install tmux - install tmux plugin manager(tpm) (step 3/4)
+  git:
+    repo: "https://github.com/tmux-plugins/tpm.git"
+    dest: ~/.tmux/plugins/tpm
+
+- name: Install tmux - install tmux plugins (step 4/4)
+  shell: "~/.tmux/plugins/tpm/bin/install_plugins \
+          && ~/.tmux/plugins/tpm/bin/update_plugins all \
+          && ~/.tmux/plugins/tpm/bin/clean_plugins"

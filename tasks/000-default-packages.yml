@@ -34,7 +34,6 @@
       - python3-dev
       - python3-pip
       - rdate
-      - tmux
       - tree
       - yum
       - zip

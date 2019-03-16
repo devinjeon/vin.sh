@@ -9,6 +9,7 @@
   - import_tasks: tasks/140-fpp.yml
   - import_tasks: tasks/150-docker.yml
   - import_tasks: tasks/160-python-virtualenvwrapper.yml
+  - import_tasks: tasks/170-tmux.yml
   vars:
     vimrc: "{{ playbook_dir }}/rc/vimrc"
     zsh_theme: "{{ playbook_dir }}/rc/vin.zsh-theme"

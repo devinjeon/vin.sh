@@ -47,12 +47,14 @@
     state: directory
     recurse: true
 
-- name: Install Oh My Zsh - copy vin.zsh-theme (step 10/11)
-  copy:
-    src: "{{ zsh_theme }}"
+- name: Install Oh My Zsh - Create vin.zsh-theme symbolic link (step 10/11)
+  file:
+    src: "{{ playbook_dir }}/rc/vin.zsh-theme"
     dest: ~/.oh-my-zsh/custom/themes/vin.zsh-theme
+    state: link
 
-- name: Install Oh My Zsh - copy zshrc (step 11/11)
-  copy:
-    src: "{{ zshrc }}"
+- name: Install Oh My Zsh - Create zshrc symbolic link (step 11/11)
+  file:
+    src: "{{ playbook_dir }}/rc/zshrc"
     dest: ~/.zshrc
+    state: link

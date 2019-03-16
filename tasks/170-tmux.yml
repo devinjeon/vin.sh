@@ -4,10 +4,11 @@
     state: latest
   become: true
 
-- name: Install tmux - copy tmux conf (step 2/4)
-  copy:
-    src: "{{ tmux_conf }}"
+- name: Install tmux - Create tmux.conf symbolic link (step 2/4)
+  file:
+    src: "{{ playbook_dir }}/rc/tmux.conf"
     dest: ~/.tmux.conf
+    state: link
 
 - name: Install tmux - install tmux plugin manager(tpm) (step 3/4)
   git:

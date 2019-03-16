@@ -14,8 +14,4 @@
   - import_tasks: tasks/170-tmux.yml
   - import_tasks: tasks/180-golang.yml
   vars:
-    vimrc: "{{ playbook_dir }}/rc/vimrc"
-    zsh_theme: "{{ playbook_dir }}/rc/vin.zsh-theme"
-    zshrc: "{{ playbook_dir }}/rc/zshrc"
-    tmux_conf: "{{ playbook_dir }}/rc/tmux.conf"
     virtualenvwrapper_home: "$HOME/.venvwrapper"

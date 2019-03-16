@@ -11,10 +11,11 @@
     state: latest
   become: true
 
-- name: Install Vim - Copy vimrc (step 3/7)
-  copy:
-    src: "{{ vimrc }}"
+- name: Install Vim - Create vimrc symbolic link (step 3/7)
+  file:
+    src: "{{ playbook_dir }}/rc/vimrc"
     dest: ~/.vimrc
+    state: link
 
 - name: Install Vim - make vim-plug directory (step 4/7)
   file:

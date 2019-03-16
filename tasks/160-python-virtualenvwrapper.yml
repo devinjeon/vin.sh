@@ -1,10 +1,15 @@
-- name: Install python virtualenvwrapper
+- name: Install python virtualenvwrapper - install package(step 1/3)
   pip:
     name: virtualenvwrapper
   become: true
 
-- name: Create directory for python virtualenvwrapper
+- name: Install python virtualenvwrapper - Create directory (step 2/3)
   file:
     path: "{{ virtualenvwrapper_home }}"
     state: directory
     mode: 0755
+
+- name: Install python virtualenvwrapper - Copy rc file (step 3/3)
+  template:
+    src: "{{ playbook_dir }}/rc/virtualenvwrapper_rc"
+    dest: ~/.rc/virtualenvwrapper_rc

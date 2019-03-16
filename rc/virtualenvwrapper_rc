@@ -1,0 +1,3 @@
+# virtualenvwrapper
+export WORKON_HOME="{{ virtualenvwrapper_home }}"
+source /usr/local/bin/virtualenvwrapper.sh

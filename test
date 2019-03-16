@@ -49,7 +49,7 @@ sshpass -p "$docker_password" \
 echo 'Starting to install vin.sh ...'
 sshpass -p "$docker_password" \
     ssh -p 2223 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@localhost <<EOF
-~/vin.sh/install-ansible && \
-    ansible-playbook -i "localhost," --connection=local \
-    -e "ansible_sudo_pass='$docker_password'" "\$HOME/vin.sh/playbook.yml" -K
+~/vin.sh/install-ansible
+ansible-playbook -i "localhost," --connection=local \
+-e "ansible_sudo_pass='$docker_password'" "\$HOME/vin.sh/playbook.yml" -K
 EOF

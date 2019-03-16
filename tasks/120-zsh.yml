@@ -50,10 +50,10 @@
 
 - name: Install Oh My Zsh - copy vin.zsh-theme (step 10/11)
   copy:
-    src: "{{ playbook_dir }}/rc/vin.zsh-theme"
+    src: "{{ zsh_theme }}"
     dest: ~/.oh-my-zsh/custom/themes/vin.zsh-theme
 
 - name: Install Oh My Zsh - copy zshrc (step 11/11)
   copy:
-    src: "{{ playbook_dir }}/rc/zshrc"
+    src: "{{ zshrc }}"
     dest: ~/.zshrc

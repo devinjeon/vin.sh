@@ -13,7 +13,7 @@
 
 - name: Copy vimrc
   copy:
-    src: "{{ playbook_dir }}/rc/vimrc"
+    src: "{{ vimrc }}"
     dest: ~/.vimrc
 
 - name: Install vim-plug - 1. make directory

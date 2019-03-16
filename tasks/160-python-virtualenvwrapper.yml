@@ -5,6 +5,6 @@
 
 - name: Create directory for python virtualenvwrapper
   file:
-    path: "{{ python_virtualenvwrapper_path }}"
+    path: "{{ virtualenvwrapper_home }}"
     state: directory
     mode: 0755

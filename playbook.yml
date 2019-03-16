@@ -10,4 +10,8 @@
   - import_tasks: tasks/150-docker.yml
   - import_tasks: tasks/160-python-virtualenvwrapper.yml
   vars:
-    python_virtualenvwrapper_path: "$HOME/.venvwrapper"
+    vimrc: "{{ playbook_dir }}/rc/vimrc"
+    zsh_theme: "{{ playbook_dir }}/rc/vin.zsh-theme"
+    zshrc: "{{ playbook_dir }}/rc/zshrc"
+    tmux_conf: "{{ playbook_dir }}/rc/tmux.conf"
+    virtualenvwrapper_home: "$HOME/.venvwrapper"

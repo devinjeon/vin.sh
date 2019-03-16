@@ -10,7 +10,7 @@ install_ansible () {
     sudo apt-add-repository -y ppa:ansible/ansible > /dev/null
     sudo apt-get -qq update 1> /dev/null
     sudo apt-get -qq -y install ansible 1> /dev/null && \
-        echo "'Ansible' installation complated."
+        echo "'Ansible' installation completed."
 }
 
 # Install `ansible`

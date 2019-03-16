@@ -39,3 +39,11 @@
       - yum
       - zip
   become: true
+
+- name: Install python packages
+  pip:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - awscli
+  become: true

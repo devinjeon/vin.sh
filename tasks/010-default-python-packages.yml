@@ -1,9 +1,0 @@
----
-- name: Install default python packages
-  pip:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - awscli
-    - pdbpp
-  become: true

@@ -1,34 +1,34 @@
 ---
-- name: Install Vim - Add apt repositoiry (step 1/2)
+- name: Install Vim - Add apt repositoiry (step 1/7)
   apt_repository:
     repo: ppa:jonathonf/vim
   become: true
 
-- name: Install Vim - install vim (step 2/2)
+- name: Install Vim - install vim (step 2/7)
   apt:
     name: vim
     update_cache: true
     state: latest
   become: true
 
-- name: Copy vimrc
+- name: Install Vim - Copy vimrc (step 3/7)
   copy:
     src: "{{ vimrc }}"
     dest: ~/.vimrc
 
-- name: Install vim-plug - 1. make directory
+- name: Install Vim - make vim-plug directory (step 4/7)
   file:
     path: ~/.vim/autoload
     state: directory
     recurse: true
 
-- name: Install vim-plug - 2. download plug.vim
+- name: Install Vim - download plug.vim (step 5/7)
   get_url:
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     dest: ~/.vim/autoload/plug.vim
 
-- name: Install plugins
+- name: Install Vim - install plugins (step 6/7)
   shell: vim --noplugin -c PlugInstall -c qa
 
-- name: Install YouCompleteMe
+- name: Install Vim - install YouCompleteMe (step 7/7)
   shell: ~/.vim/plugged/YouCompleteMe/install.py

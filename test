@@ -13,8 +13,6 @@ install_sshpass () {
 
 command -v sshpass > /dev/null || install_sshpass
 
-source install-ansible
-
 # Pull docker image for test
 # * Dockerhub: devinjeon/vin.sh-test(will be made as a Dockerfile later)
 image='devinjeon/vin.sh-test'

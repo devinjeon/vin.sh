@@ -2,7 +2,6 @@
 - name: Install Oh My Zsh - install zsh (step 1/11)
   apt:
     name: zsh
-    update_cache: true
     state: latest
   become: true
 

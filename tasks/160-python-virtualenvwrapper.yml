@@ -1,0 +1,10 @@
+- name: Install python virtualenvwrapper
+  pip:
+    name: virtualenvwrapper
+  become: true
+
+- name: Create directory for python virtualenvwrapper
+  file:
+    path: "{{ python_virtualenvwrapper_path }}"
+    state: directory
+    mode: 0755

@@ -2,7 +2,8 @@
 - hosts: all
   tasks:
   - import_tasks: tasks/000-default-packages.yml
-  - import_tasks: tasks/010-time.yml
+  - import_tasks: tasks/010-rc.yml
+  - import_tasks: tasks/020-time.yml
   - import_tasks: tasks/100-vim.yml
   - import_tasks: tasks/110-shellcheck.yml
   - import_tasks: tasks/120-zsh.yml

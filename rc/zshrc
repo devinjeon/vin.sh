@@ -20,3 +20,9 @@ if [[ -d "$ZSH" ]]; then
   ZSH_THEME="vin"
   source $ZSH/oh-my-zsh.sh
 fi
+
+mkdir -p "$HOME/.rc"
+for p in $(find "$HOME/.rc/" -type f)
+do
+    source "$p"
+done

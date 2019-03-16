@@ -1,0 +1,5 @@
+---
+- name: Make rc directory
+  file:
+    path: ~/.rc
+    state: directory

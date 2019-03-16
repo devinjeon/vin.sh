@@ -44,9 +44,14 @@ docker run -tid --name "$container" -p "$port":22 "$image" 1> /dev/null
 # "/usr/bin/python"(default) to "/usr/bin/env python3"
 
 docker_password='vin.sh-test'
-ansible-playbook -i "localhost," -e "\
-    ansible_port='$port'\
-    ansible_user='ubuntu'\
-    ansible_ssh_pass='$docker_password' \
-    ansible_python_interpreter='/usr/bin/python3'"\
-    "playbook.yml"
+echo 'Uploading local vin.sh to test docker ...'
+sshpass -p "$docker_password" \
+    scp -q -r -P 2223 ./ ubuntu@localhost:~/vin.sh
+
+echo 'Starting to install vin.sh ...'
+sshpass -p "$docker_password" \
+    ssh -p 2223 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@localhost <<EOF
+~/vin.sh/install-ansible && \
+    ansible-playbook -i "localhost," --connection=local \
+    -e "ansible_sudo_pass='$docker_password'" "\$HOME/vin.sh/playbook.yml" -K
+EOF

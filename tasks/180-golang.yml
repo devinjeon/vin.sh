@@ -1,0 +1,12 @@
+---
+- name: Install GoLang - download and unarchive (step 1/5)
+  unarchive:
+    src: https://dl.google.com/go/go1.12.1.linux-amd64.tar.gz
+    dest: /usr/local/
+    remote_src: true
+  become: true
+
+- name: Install GoLang - Copy golang rc file to set PATHS for Go
+  copy:
+    src: "{{ playbook_dir }}/rc/golang_rc"
+    dest: ~/.rc/golang_rc

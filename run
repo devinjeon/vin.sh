@@ -2,7 +2,6 @@
 set -euo pipefail
 
 # Install packages, if dependencies are not installed.
-
 SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
 # shellcheck source=install-ansible
 source "$SCRIPT_DIR/install-ansible"

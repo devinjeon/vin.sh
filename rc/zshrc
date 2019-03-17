@@ -16,6 +16,9 @@ if [[ -d "$ZSH" ]]; then
   source $ZSH/oh-my-zsh.sh
 fi
 
+# fzf
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
 mkdir -p "$HOME/.rc"
 for p in $(find "$HOME/.rc/" -not -type d)
 do

@@ -45,4 +45,5 @@
   vars:
     packages:
     - awscli
+    - mycli
   become: true

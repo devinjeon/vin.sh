@@ -19,6 +19,7 @@ fi
 # fzf
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
+# Activate rc files
 mkdir -p "$HOME/.rc"
 for p in $(find "$HOME/.rc/" -not -type d)
 do

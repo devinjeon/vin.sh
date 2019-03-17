@@ -1,0 +1,2 @@
+# tmux
+alias tmux='TERM=xterm-16color tmux -2'

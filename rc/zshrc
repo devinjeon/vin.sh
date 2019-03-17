@@ -22,7 +22,7 @@ if [[ -d "$ZSH" ]]; then
 fi
 
 mkdir -p "$HOME/.rc"
-for p in $(find "$HOME/.rc/" -type f)
+for p in $(find "$HOME/.rc/" -not -type d)
 do
     source "$p"
 done

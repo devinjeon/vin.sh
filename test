@@ -17,14 +17,16 @@ command -v sshpass > /dev/null || install_sshpass
 # * Dockerhub: devinjeon/vin.sh-test(will be made as a Dockerfile later)
 image='devinjeon/vin.sh-test'
 
-if [ -z "$(docker images -q "$image")" ]; then
+if [ -z "$(docker images -q "$image")" ]
+then
     echo "Pulling docker image: $image ..."
     docker pull "$image"
 fi
 
 # Remove docker container already running
 container='vin.sh-test'
-if [ -n "$(docker ps -a -q -f name=$container)" ]; then
+if [ -n "$(docker ps -a -q -f name=$container)" ]
+then
     echo "Removing docker container already running: $container ..."
     docker rm -f "$container" 1> /dev/null
 fi

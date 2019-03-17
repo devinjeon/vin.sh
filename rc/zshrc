@@ -26,3 +26,8 @@ for p in $(find "$HOME/.rc/" -type f)
 do
     source "$p"
 done
+
+# Configure the system.
+export EDITOR="vim"
+export LANG="en_US.UTF-8"
+export LC_ALL=$LANG

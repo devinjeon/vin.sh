@@ -10,10 +10,10 @@
     dest: ~/.tmux.conf
     state: link
 
-- name: Install tmux - Create tmuxrc symbolic link (step 3/5)
+- name: Install tmux - Create tmuxenv symbolic link (step 3/5)
   file:
-    src: "{{ playbook_dir }}/rc/tmuxrc"
-    dest: ~/.rc/tmuxrc
+    src: "{{ playbook_dir }}/rc/tmuxenv"
+    dest: ~/.rc/tmuxenv
     state: link
 
 - name: Install tmux - install tmux plugin manager(tpm) (step 4/5)

@@ -9,7 +9,7 @@
     state: directory
     mode: 0755
 
-- name: Install python virtualenvwrapper - Copy rc file (step 3/3)
+- name: Install python virtualenvwrapper - Copy env file (step 3/3)
   template:
-    src: "{{ playbook_dir }}/rc/virtualenvwrapper_rc"
-    dest: ~/.rc/virtualenvwrapper_rc
+    src: "{{ playbook_dir }}/rc/virtualenvwrapperenv"
+    dest: ~/.rc/virtualenvwrapperenv

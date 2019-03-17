@@ -4,10 +4,10 @@
     path: ~/.rc
     state: directory
 
-- name: Create gitrc symbolic link
+- name: Create gitenv symbolic link
   file:
-    src: "{{ playbook_dir }}/rc/gitrc"
-    dest: ~/.rc/gitrc
+    src: "{{ playbook_dir }}/rc/gitenv"
+    dest: ~/.rc/gitenv
     state: link
 
 - name: Create gitalias symbolic link

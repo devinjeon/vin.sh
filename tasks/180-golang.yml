@@ -6,7 +6,7 @@
     remote_src: true
   become: true
 
-- name: Install GoLang - Copy golang rc file to set PATHS for Go
+- name: Install GoLang - Copy golangenv file to set PATHS for Go
   copy:
-    src: "{{ playbook_dir }}/rc/golang_rc"
-    dest: ~/.rc/golang_rc
+    src: "{{ playbook_dir }}/rc/golangenv"
+    dest: ~/.rc/golangenv

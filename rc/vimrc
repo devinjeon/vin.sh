@@ -28,6 +28,7 @@ Plug 'vim-scripts/Command-T' " Fast file navigation
 Plug 'sheerun/vim-polyglot' " Highlight many languages syntax
 Plug 'tpope/vim-commentary' " Add shortcut `gc[c]` to comment out
 Plug 'eugen0329/vim-esearch' " Async search and replace
+Plug 'devinjeon/leetcode.vim'
 
 call plug#end()
 

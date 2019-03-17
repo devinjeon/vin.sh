@@ -1,0 +1,14 @@
+# git crlf setting with window pycharm
+git config --global core.autocrlf input
+
+# git editor
+git config --global core.editor vim
+git config --global merge.tool vimdiff
+
+# git alias
+git config --global include.path "$HOME/.git-aliases"
+
+# git ignore maker
+function gi() {
+    curl -XGET https://www.gitignore.io/api/$@ >> .gitignore
+}

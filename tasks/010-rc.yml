@@ -3,3 +3,15 @@
   file:
     path: ~/.rc
     state: directory
+
+- name: Create gitrc symbolic link
+  file:
+    src: "{{ playbook_dir }}/rc/gitrc"
+    dest: ~/.rc/gitrc
+    state: link
+
+- name: Create gitalias symbolic link
+  file:
+    src: "{{ playbook_dir }}/rc/git-aliases"
+    dest: ~/.git-aliases
+    state: link

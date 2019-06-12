@@ -31,7 +31,7 @@ prompt_user() {
 
 prompt_dir() {
   # ~/.oh-my-zsh/custom
-  echo -n "%~"
+  echo -n "%1~"
 }
 
 prompt_git() {

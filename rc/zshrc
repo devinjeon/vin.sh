@@ -3,13 +3,6 @@
 # fzf
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
-# Activate rc files
-mkdir -p "$HOME/.rc"
-for p in $(find "$HOME/.rc/" -not -type d)
-do
-    source "$p"
-done
-
 # Configure the system.
 export EDITOR="vim"
 export LANG="en_US.UTF-8"
@@ -47,3 +40,10 @@ then
   zstyle :bracketed-paste-magic paste-init pasteinit
   zstyle :bracketed-paste-magic paste-finish pastefinish
 fi
+
+# Activate rc files
+mkdir -p "$HOME/.rc"
+for p in $(find "$HOME/.rc/" -not -type d)
+do
+    source "$p"
+done

@@ -23,11 +23,15 @@ then
   for plugin_path in $ZSH/custom/plugins/*
   do
     plugin="$(basename $plugin_path)"
-    if [[ -f "$plugin_path/$plugin.plugin.zsh" ]]
+    if [[ -f "$plugin_path/$plugin.plugin.zsh" ]] \
+        && [[ "$plugin" != "zsh-syntax-highlighting" ]]
     then
       plugins+=("$plugin")
     fi
   done
+  # `zsh-syntax-highlighting` must be last at plugins
+  plugins+=("zsh-syntax-highlighting")
+
   ZSH_THEME="vin"
   source $ZSH/oh-my-zsh.sh
 

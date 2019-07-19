@@ -1,5 +1,20 @@
 #!/usr/bin/env zsh
 
+# fzf
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
+# Activate rc files
+mkdir -p "$HOME/.rc"
+for p in $(find "$HOME/.rc/" -not -type d)
+do
+    source "$p"
+done
+
+# Configure the system.
+export EDITOR="vim"
+export LANG="en_US.UTF-8"
+export LC_ALL=$LANG
+
 # Oh My ZSH!
 export ZSH=$HOME/.oh-my-zsh
 plugins=(git z)
@@ -15,19 +30,4 @@ then
   done
   ZSH_THEME="vin"
   source $ZSH/oh-my-zsh.sh
-fi
 
-# fzf
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
-
-# Activate rc files
-mkdir -p "$HOME/.rc"
-for p in $(find "$HOME/.rc/" -not -type d)
-do
-    source "$p"
-done
-
-# Configure the system.
-export EDITOR="vim"
-export LANG="en_US.UTF-8"
-export LC_ALL=$LANG

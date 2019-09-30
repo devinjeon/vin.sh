@@ -1,3 +1,4 @@
 # virtualenvwrapper
-export WORKON_HOME="{{ virtualenvwrapper_home }}"
+export WORKON_HOME="$HOME/.venvwrapper"
+mkdir -p "$WORKON_HOME"
 source /usr/local/bin/virtualenvwrapper.sh

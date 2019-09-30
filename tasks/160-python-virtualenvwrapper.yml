@@ -3,13 +3,8 @@
     name: virtualenvwrapper
   become: true
 
-- name: Install python virtualenvwrapper - Create directory (step 2/3)
-  file:
-    path: "{{ virtualenvwrapper_home }}"
-    state: directory
-    mode: 0755
-
 - name: Install python virtualenvwrapper - Copy env file (step 3/3)
-  template:
+  file:
     src: "{{ playbook_dir }}/rc/virtualenvwrapperenv"
     dest: ~/.rc/virtualenvwrapperenv
+    state: link

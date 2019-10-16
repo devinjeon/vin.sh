@@ -56,3 +56,4 @@ augroup END
 " =================
 
 let g:ycm_python_binary_path = 'python'
+let g:vim_markdown_folding_disabled = 1

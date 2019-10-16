@@ -1,8 +1,20 @@
 ---
-- name: Install docker (step 1/2)
-  shell: "wget -qO- https://get.docker.com/ | sh"
+- name: Install docker - Get install script (step 1/4)
+  get_url:
+    url: https://get.docker.com/
+    dest: /tmp/install_docker.sh
   become: true
 
-- name: Install docker - Append user to docker group (step 2/2)
+- name: Install docker - Run the install script (step 2/4)
+  shell: bash /tmp/install_docker.sh
+  become: true
+
+- name: Install docker - Remove the install script (step 3/4)
+  file:
+    path: /tmp/install_docker.sh
+    state: absent
+  become: true
+
+- name: Install docker - Append user to docker group (step 4/4)
   shell: "usermod -aG docker $USER"
   become: true

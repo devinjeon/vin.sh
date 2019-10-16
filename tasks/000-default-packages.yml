@@ -39,9 +39,10 @@
       - zip
   become: true
 
-- name: Install python packages
+- name: Install python packages (step 2/2)
   pip:
     name: "{{ packages }}"
+    executable: pip3
   vars:
     packages:
     - awscli

@@ -3,15 +3,15 @@
 set -euo pipefail
 
 install_ansible() {
-    echo "It requires to install 'Ansible'."
-    echo "Installing 'Ansible' ..."
-    sudo apt-get -qq update 1> /dev/null
-    sudo apt-get -qq -y install software-properties-common 1> /dev/null
-    sudo apt-add-repository -y ppa:ansible/ansible > /dev/null
-    sudo apt-get -qq update 1> /dev/null
-    sudo apt-get -qq -y install --no-install-recommends python-apt python3-apt aptitude
-    sudo apt-get -qq -y install ansible 1> /dev/null &&
-      echo "'Ansible' installation completed."
+  echo "It requires to install 'Ansible'."
+  echo "Installing 'Ansible' ..."
+  sudo apt-get -qq update 1> /dev/null
+  sudo apt-get -qq -y install software-properties-common 1> /dev/null
+  sudo apt-add-repository -y ppa:ansible/ansible > /dev/null
+  sudo apt-get -qq update 1> /dev/null
+  sudo apt-get -qq -y install --no-install-recommends python-apt python3-apt aptitude
+  sudo apt-get -qq -y install ansible 1> /dev/null &&
+    echo "'Ansible' installation completed."
 }
 
 # Install `ansible`

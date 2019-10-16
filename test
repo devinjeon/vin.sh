@@ -3,12 +3,12 @@
 set -euo pipefail
 
 # Install packages, if dependencies are not installed.
-install_sshpass () {
-    echo "It requires to install 'sshpass'."
-    echo "Installing 'sshpass' ..."
-    sudo apt update
-    sudo apt -y install ssh && \
-        echo "'sshpass' installation complated."
+install_sshpass() {
+  echo "It requires to install 'sshpass'."
+  echo "Installing 'sshpass' ..."
+  sudo apt update
+  sudo apt -y install sshpass &&
+    echo "'sshpass' installation completed."
 }
 
 command -v sshpass > /dev/null || install_sshpass
@@ -17,18 +17,16 @@ command -v sshpass > /dev/null || install_sshpass
 # * Dockerhub: devinjeon/vin.sh-test(will be made as a Dockerfile later)
 image='devinjeon/vin.sh-test'
 
-if [ -z "$(docker images -q "$image")" ]
-then
-    echo "Pulling docker image: $image ..."
-    docker pull "$image"
+if [ -z "$(docker images -q "$image")" ]; then
+  echo "Pulling docker image: $image ..."
+  docker pull "$image"
 fi
 
 # Remove docker container already running
 container='vin.sh-test'
-if [ -n "$(docker ps -a -q -f name=$container)" ]
-then
-    echo "Removing docker container already running: $container ..."
-    docker rm -f "$container" 1> /dev/null
+if [ -n "$(docker ps -a -q -f name=$container)" ]; then
+  echo "Removing docker container already running: $container ..."
+  docker rm -f "$container" 1> /dev/null
 fi
 
 port=2223
@@ -46,12 +44,12 @@ docker run -tid --name "$container" -p "$port":22 "$image" 1> /dev/null
 docker_password='vin.sh-test'
 echo 'Uploading local vin.sh to test docker ...'
 sshpass -p "$docker_password" \
-    scp -q -r -P 2223 ./ ubuntu@localhost:~/vin.sh
+  scp -q -r -P 2223 ./ ubuntu@localhost:~/vin.sh
 
 echo 'Starting to install vin.sh ...'
 sshpass -p "$docker_password" \
-    ssh -p 2223 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@localhost <<EOF
+  ssh -p 2223 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@localhost << EOF
 ~/vin.sh/install-ansible
 ansible-playbook -i "localhost," --connection=local \
--e "ansible_sudo_pass='$docker_password'" "\$HOME/vin.sh/playbook.yml" -K
+      -e "ansible_sudo_pass='$docker_password'" "\$HOME/vin.sh/playbook.yml" -K
 EOF

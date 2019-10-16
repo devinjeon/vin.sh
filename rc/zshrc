@@ -21,14 +21,11 @@ export DISABLE_MAGIC_FUNCTIONS="true"
 # Oh My ZSH!
 export ZSH=$HOME/.oh-my-zsh
 plugins=(git z)
-if [[ -d "$ZSH" ]]
-then
-  for plugin_path in $ZSH/custom/plugins/*
-  do
+if [[ -d "$ZSH" ]]; then
+  for plugin_path in $ZSH/custom/plugins/*; do
     plugin="$(basename $plugin_path)"
-    if [[ -f "$plugin_path/$plugin.plugin.zsh" ]] \
-        && [[ "$plugin" != "zsh-syntax-highlighting" ]]
-    then
+    if [[ -f "$plugin_path/$plugin.plugin.zsh" ]] &&
+      [[ "$plugin" != "zsh-syntax-highlighting" ]]; then
       plugins+=("$plugin")
     fi
   done
@@ -41,7 +38,6 @@ fi
 
 # Activate rc files
 mkdir -p "$HOME/.rc"
-for p in $(find "$HOME/.rc/" -not -type d)
-do
-    source "$p"
+for p in $(find "$HOME/.rc/" -not -type d); do
+  source "$p"
 done

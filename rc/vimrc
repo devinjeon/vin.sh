@@ -20,6 +20,9 @@ set autoindent
 " Plugins
 call plug#begin('~/.vim/plugged')
 
+Plug 'rhysd/committia.vim'
+Plug 'hotwatermorning/auto-git-diff'
+Plug 'junegunn/vim-easy-align'
 Plug 'w0rp/ale' " Asynchronous Lint Engine
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " - NERDTree
 Plug 'Valloric/YouCompleteMe' " Auto complete / needed to run `install.py` at first
@@ -29,6 +32,8 @@ Plug 'sheerun/vim-polyglot' " Highlight many languages syntax
 Plug 'tpope/vim-commentary' " Add shortcut `gc[c]` to comment out
 Plug 'eugen0329/vim-esearch' " Async search and replace
 Plug 'devinjeon/leetcode.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'hashivim/vim-terraform'
 
 " google/vimcodefmt
 Plug 'google/vim-maktaba'

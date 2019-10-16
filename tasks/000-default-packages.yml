@@ -1,5 +1,5 @@
 ---
-- name: Install default packages
+- name: Install default packages (step 1/2)
   apt:
     name: "{{ packages }}"
     update_cache: true
@@ -23,9 +23,12 @@
       - libreadline-dev
       - libsasl2-dev
       - libsqlite3-dev
-      - libssl-dev
+      - libssl1.0-dev
       - libxml2-dev
       - libxslt1-dev
+      - nodejs-dev
+      - node-gyp
+      - npm
       - openssl
       - python-dev
       - python-pip

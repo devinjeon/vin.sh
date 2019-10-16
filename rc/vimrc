@@ -30,6 +30,24 @@ Plug 'tpope/vim-commentary' " Add shortcut `gc[c]` to comment out
 Plug 'eugen0329/vim-esearch' " Async search and replace
 Plug 'devinjeon/leetcode.vim'
 
+" google/vimcodefmt
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
+
 call plug#end()
+
+" =================
+" google/vimcodefmt
+
+augroup autoformat_settings
+    autocmd FileType bzl AutoFormatBuffer buildifier
+    autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+    autocmd FileType go AutoFormatBuffer gofmt
+    autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+    autocmd FileType python AutoFormatBuffer yapf
+    autocmd FileType bash,sh,zsh AutoFormatBuffer shfmt
+augroup END
+" =================
 
 let g:ycm_python_binary_path = 'python'

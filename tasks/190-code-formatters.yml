@@ -26,8 +26,8 @@
 - name: Install shell formatter
   shell: zsh -c ". ~/.zshrc && go get mvdan.cc/sh/cmd/shfmt"
 
-- name: Install js formatter
+- name: Install prettier(html, js, css, etc ...) formatter
   npm:
-    name: js-beautify
+    name: prettier
     global: yes
   become: true

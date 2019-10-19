@@ -37,22 +37,20 @@ Plug 'hashivim/vim-terraform'
 
 " google/vimcodefmt
 Plug 'google/vim-maktaba'
-Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
+Plug 'google/vim-codefmt'
 
 call plug#end()
 
 " =================
 " google/vimcodefmt
 
-augroup autoformat_settings
-    autocmd FileType bzl AutoFormatBuffer buildifier
-    autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
-    autocmd FileType go AutoFormatBuffer gofmt
-    autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
-    autocmd FileType python AutoFormatBuffer yapf
-    autocmd FileType bash,sh,zsh AutoFormatBuffer shfmt
-augroup END
+autocmd FileType c,cpp,proto let b:codefmt_formatter='clang-format'
+autocmd FileType vue,javascript,html,css,sass,scss,less,json let b:codefmt_formatter='prettier'
+autocmd FileType python let b:codefmt_formatter='yapf'
+autocmd FileType go let b:codefmt_formatter='gofmt'
+autocmd FileType bash,sh,zsh let b:codefmt_formatter='shfmt'
+
 " =================
 
 let g:ycm_python_binary_path = 'python'

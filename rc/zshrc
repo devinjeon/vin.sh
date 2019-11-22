@@ -36,6 +36,9 @@ if [[ -d "$ZSH" ]]; then
   source $ZSH/oh-my-zsh.sh
 fi
 
+# Make the completion scripts for bash compatible with zsh
+# https://stackoverflow.com/questions/3249432/can-a-bash-tab-completion-script-be-used-in-zsh
+autoload bashcompinit && bashcompinit
 # Activate rc files
 mkdir -p "$HOME/.rc"
 for p in $(find "$HOME/.rc/" -not -type d); do

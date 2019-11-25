@@ -16,6 +16,7 @@
     src: "{{ playbook_dir }}/rc/vimrc"
     dest: ~/.vimrc
     state: link
+    force: true
 
 - name: Install Vim - make vim-plug directory (step 4/7)
   file:

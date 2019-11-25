@@ -9,12 +9,14 @@
     src: "{{ playbook_dir }}/rc/tmux.conf"
     dest: ~/.tmux.conf
     state: link
+    force: true
 
 - name: Install tmux - Create tmuxenv symbolic link (step 3/5)
   file:
     src: "{{ playbook_dir }}/rc/tmuxenv"
     dest: ~/.rc/tmuxenv
     state: link
+    force: true
 
 - name: Install tmux - install tmux plugin manager(tpm) (step 4/5)
   git:

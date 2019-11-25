@@ -8,3 +8,4 @@
     src: "{{ playbook_dir }}/rc/virtualenvwrapperenv"
     dest: ~/.rc/virtualenvwrapperenv
     state: link
+    force: true

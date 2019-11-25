@@ -11,3 +11,4 @@
     src: "{{ playbook_dir }}/rc/golangenv"
     dest: ~/.rc/golangenv
     state: link
+    force: true

@@ -19,6 +19,7 @@
     src: /usr/share/fpp/fpp
     dest: /usr/bin/fpp
     state: link
+    force: true
   become: true
 
 - name: Install fpp - Remove /tmp/fpp (step 5/5)

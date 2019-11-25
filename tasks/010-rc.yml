@@ -9,9 +9,11 @@
     src: "{{ playbook_dir }}/rc/gitenv"
     dest: ~/.rc/gitenv
     state: link
+    force: true
 
 - name: Create gitalias symbolic link
   file:
     src: "{{ playbook_dir }}/rc/git-aliases"
     dest: ~/.git-aliases
     state: link
+    force: true

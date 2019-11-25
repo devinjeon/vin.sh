@@ -22,6 +22,7 @@
     src: "{{ playbook_dir }}/rc/yapf_config"
     dest: ~/.config/yapf/style
     state: link
+    force: true
 
 - name: Install shell formatter
   shell: zsh -c ". ~/.zshrc && go get mvdan.cc/sh/cmd/shfmt"

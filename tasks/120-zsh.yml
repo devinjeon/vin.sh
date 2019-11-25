@@ -52,9 +52,11 @@
     src: "{{ playbook_dir }}/rc/vin.zsh-theme"
     dest: ~/.oh-my-zsh/custom/themes/vin.zsh-theme
     state: link
+    force: true
 
 - name: Install Oh My Zsh - Create zshrc symbolic link (step 11/11)
   file:
     src: "{{ playbook_dir }}/rc/zshrc"
     dest: ~/.zshrc
     state: link
+    force: true

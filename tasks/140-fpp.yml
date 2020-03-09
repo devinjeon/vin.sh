@@ -12,18 +12,15 @@
 
 - name: Install fpp - Remove /usr/share/fpp if it exists (step 3/7)
   file:
-    path: /usr/share/fpp/
+    path: /usr/share/fpp
     state: absent
   become: true
 
 - name: Install fpp - Copy fpp to /usr/share/fpp (step 4/7)
   copy:
     src: /tmp/fpp
-    dest: /usr/share/fpp
-  become: true
-
-- name: Install fpp - Change mode recursively (step 5/7)
-  shell: chmod -R 755 /usr/share/fpp
+    dest: /usr/share/
+    mode: preserve
   become: true
 
 - name: Install fpp - Create symbolic link (step 6/7)

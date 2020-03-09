@@ -14,3 +14,4 @@
   - import_tasks: tasks/170-tmux.yml
   - import_tasks: tasks/180-golang.yml
   - import_tasks: tasks/190-code-formatters.yml
+  - import_tasks: tasks/200-nodejs.yml

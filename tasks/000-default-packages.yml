@@ -26,9 +26,6 @@
       - libssl1.0-dev
       - libxml2-dev
       - libxslt1-dev
-      - nodejs-dev
-      - node-gyp
-      - npm
       - openssl
       - python-dev
       - python-pip

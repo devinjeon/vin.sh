@@ -6,4 +6,4 @@ SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
 # shellcheck source=install-ansible
 source "$SCRIPT_DIR/install-ansible"
 
-ansible-playbook -i "localhost," --connection=local "$SCRIPT_DIR/playbook.yml" -K
+ansible-playbook -i "localhost," --connection=local "$SCRIPT_DIR/playbook.yml"

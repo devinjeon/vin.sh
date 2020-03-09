@@ -6,4 +6,9 @@ SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
 # shellcheck source=install-ansible
 source "$SCRIPT_DIR/install-ansible"
 
+# Enable Ansible logging
+mkdir -p log
+ANSIBLE_LOG_PATH="$SCRIPT_DIR/log/log.$(date +%Y%m%d%H%M%S)"
+export ANSIBLE_LOG_PATH
+
 ansible-playbook -i "localhost," --connection=local "$SCRIPT_DIR/playbook.yml"

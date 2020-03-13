@@ -34,6 +34,8 @@ Plug 'eugen0329/vim-esearch' " Async search and replace
 Plug 'devinjeon/leetcode.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'hashivim/vim-terraform'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 
 " google/vimcodefmt
 Plug 'google/vim-maktaba'

@@ -44,3 +44,8 @@ mkdir -p "$HOME/.rc"
 for p in $(find "$HOME/.rc/" -not -type d); do
   source "$p"
 done
+
+if [ -z "$TMUX" ]; then
+  session="default"
+  (tmux has-session -t "$session" || tmux new -s "$session") && tmux attach -t "$session"
+fi

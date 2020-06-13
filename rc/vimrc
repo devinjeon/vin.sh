@@ -6,7 +6,6 @@ set fileencodings=ucs-bom,utf-8,cp949,latin1
 syntax on " Enable highlighting syntax
 
 set nocp " not compatible with `vi`
-set nu " show line numbers
 set hls " hightlight search keywords
 set ruler " show current cursor location
 set history=1000 " history of vim command

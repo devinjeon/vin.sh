@@ -31,7 +31,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
+Plug 'fisadev/vim-isort'
 
 " google/vimcodefmt
 Plug 'google/vim-maktaba'
@@ -59,6 +59,13 @@ autocmd FileType bash,sh,zsh let b:codefmt_formatter='shfmt'
 " Code format
 vnoremap <Leader>c :FormatLines<CR>:LspDocumentRangeFormat<CR>
 noremap <Leader>fc :FormatCode<CR>:LspDocumentFormat<CR>
+
+" Python isort
+autocmd FileType python let g:vim_isort_map = '<C-i>'
+autocmd FileType python map <C-i> :Isort<CR>
+autocmd FileType python let g:vim_isort_python_version = 'python3'
+autocmd FileType python vnoremap <Leader>c <C-i>:FormatLines<CR>:LspDocumentRangeFormat<CR>
+autocmd FileType python noremap <Leader>fc :Isort<CR>:FormatCode<CR>:LspDocumentFormat<CR>
 
 " lsp
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

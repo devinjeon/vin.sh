@@ -76,3 +76,6 @@ inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 let g:indentLine_char = '┆'
 let g:indentLine_color_term = 243
 let g:indentLine_color_gui = '#767676'
+
+" Custom
+hi Search ctermbg=4 ctermfg=15

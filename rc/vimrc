@@ -84,6 +84,18 @@ inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 " Use mypy only if it's available on the current virtualenv
 let g:ale_python_mypy_executable = 'python -m mypy'
 
+" python line length
+augroup filetype_python
+  autocmd!
+  " highlight characters past column 80
+  autocmd FileType python hi Excess ctermbg=Red ctermfg=White guibg=Red
+  autocmd FileType python match Excess /\%81v.*/
+  autocmd FileType python set nowrap
+  autocmd FileType python hi ColorColumn ctermbg=240 ctermfg=White
+  autocmd FileType python set colorcolumn=80
+  autocmd FileType python set expandtab
+augroup END
+
 " indentLine
 let g:indentLine_char = '┆'
 let g:indentLine_color_term = 243

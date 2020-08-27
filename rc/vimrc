@@ -72,6 +72,9 @@ autocmd FileType python let g:vim_isort_python_version = 'python3'
 autocmd FileType python vnoremap <Leader>c <C-i>:FormatLines<CR>:LspDocumentRangeFormat<CR>
 autocmd FileType python noremap <Leader>fc :Isort<CR>:FormatCode<CR>:LspDocumentFormat<CR>
 
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
 " lsp
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

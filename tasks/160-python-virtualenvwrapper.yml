@@ -1,6 +1,7 @@
 - name: Install python virtualenvwrapper - Install the package (step 1/2)
   pip:
     name: virtualenvwrapper
+    executable: pip3
   become: true
 
 - name: Install python virtualenvwrapper - Copy env file (step 2/2)

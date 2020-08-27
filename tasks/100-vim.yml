@@ -1,36 +1,36 @@
 ---
-- name: Install Vim - Add apt repositoiry (step 1/7)
-  apt_repository:
-    repo: ppa:jonathonf/vim
-  become: true
+- name: Install Vim - clone git repository(step 1/7)
+  git:
+    repo: "https://github.com/vim/vim.git"
+    dest: /tmp/vim
 
-- name: Install Vim - install vim (step 2/7)
+- name: Install Vim - install ruby for command-t (step 2/7)
   apt:
-    name: vim
-    update_cache: true
-    state: latest
+    name: ruby-full
   become: true
 
-- name: Install Vim - Create vimrc symbolic link (step 3/7)
+- name: Install Vim - make (step 3/7)
+  shell: (cd /tmp/vim && \
+    ./configure --enable-rubyinterp --enable-python3interp \
+    && make && sudo make install)
+
+- name: Install Vim - create vimrc symbolic link (step 4/7)
   file:
     src: "{{ playbook_dir }}/rc/vimrc"
     dest: ~/.vimrc
     state: link
     force: true
 
-- name: Install Vim - make vim-plug directory (step 4/7)
+- name: Install Vim - make vim-plug directory (step 5/7)
   file:
     path: ~/.vim/autoload
     state: directory
     recurse: true
 
-- name: Install Vim - download plug.vim (step 5/7)
+- name: Install Vim - download plug.vim (step 6/7)
   get_url:
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     dest: ~/.vim/autoload/plug.vim
 
-- name: Install Vim - install plugins (step 6/7)
+- name: Install Vim - install plugins (step 7/7)
   shell: vim --noplugin -c PlugInstall -c qa
-
-- name: Install Vim - install YouCompleteMe (step 7/7)
-  shell: ~/.vim/plugged/YouCompleteMe/install.py

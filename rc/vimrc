@@ -24,7 +24,6 @@ Plug 'rhysd/committia.vim'
 Plug 'hotwatermorning/auto-git-diff'
 Plug 'dense-analysis/ale' " Asynchronous Lint Engine
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " - NERDTree
-Plug 'Valloric/YouCompleteMe' " Auto complete / needed to run `install.py` at first
 Plug 'sheerun/vim-polyglot' " Highlight many languages syntax
 Plug 'tpope/vim-commentary' " Add shortcut `gc[c]` to comment out
 Plug 'eugen0329/vim-esearch' " Async search and replace
@@ -38,6 +37,11 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-glaive'
 Plug 'google/vim-codefmt'
 
+" lsp
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
 
 " =================
@@ -51,5 +55,11 @@ autocmd FileType bash,sh,zsh let b:codefmt_formatter='shfmt'
 
 " =================
 
-let g:ycm_python_binary_path = 'python'
-let g:vim_markdown_folding_disabled = 1
+" Code format
+vnoremap <Leader>c :FormatLines<CR>:LspDocumentRangeFormat<CR>
+noremap <Leader>fc :FormatCode<CR>:LspDocumentFormat<CR>
+
+" lsp
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"

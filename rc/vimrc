@@ -151,7 +151,10 @@ let g:airline_theme='bubblegum'
 nnoremap <F5> :MundoToggle<CR>
 
 " Custom
-map <Leader>p :set paste<CR>
-map <Leader><S-p> :set nopaste<CR>
-map <C-j> <C-w>j
-map <C-k> <C-w>k
+nnoremap <C-p> :set paste<CR>i
+nnoremap <C-o> :set nopaste<CR>
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-x> :q<CR>

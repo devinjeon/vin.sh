@@ -17,6 +17,7 @@ set autoindent
 set backspace=indent,eol,start
 
 hi Search ctermbg=4 ctermfg=15
+hi Visual ctermbg=White ctermfg=Black
 
 " Plugins
 call plug#begin('~/.vim/plugged')

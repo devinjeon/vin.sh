@@ -80,6 +80,10 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
+" ale
+" Use mypy only if it's available on the current virtualenv
+let g:ale_python_mypy_executable = 'python -m mypy'
+
 " indentLine
 let g:indentLine_char = '┆'
 let g:indentLine_color_term = 243

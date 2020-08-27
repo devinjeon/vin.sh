@@ -87,7 +87,7 @@ autocmd FileType python map <C-i> :Isort<CR>
 autocmd FileType python let g:vim_isort_python_version = 'python3'
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " lsp
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

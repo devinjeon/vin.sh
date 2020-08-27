@@ -81,16 +81,10 @@ autocmd FileType bash,sh,zsh let b:codefmt_formatter='shfmt'
 
 " =================
 
-" Code format
-vnoremap <C-f>l :FormatLines<CR>:LspDocumentRangeFormat<CR>
-noremap <C-f>d :FormatCode<CR>:LspDocumentFormat<CR>
-
 " Python isort
 autocmd FileType python let g:vim_isort_map = '<C-i>'
 autocmd FileType python map <C-i> :Isort<CR>
 autocmd FileType python let g:vim_isort_python_version = 'python3'
-autocmd FileType python vnoremap <C-f>l <C-i>:FormatLines<CR>:LspDocumentRangeFormat<CR>
-autocmd FileType python noremap <C-f>d :Isort<CR>:FormatCode<CR>:LspDocumentFormat<CR>
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -99,6 +93,35 @@ map <C-n> :NERDTreeToggle<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+noremap <C-e>ca :LspCodeAction<CR>
+noremap <C-e>cl :LspCodeLens<CR>
+noremap gdd :LspDefinition<CR>
+noremap gdt :tab LspDefinition<CR>
+noremap gdv :rightbelow vertical LspDefinition<CR>
+noremap gdh :rightbelow LspDefinition<CR>
+noremap <C-e>gd :LspDefinition<CR>
+noremap <C-e>da :tab split<CR>:LspDocumentDiagnostics<CR>
+noremap <C-e>ss :LspDocumentSymbol<CR>
+noremap <C-e>h :LspHover<CR>
+noremap <C-e>nd :LspNextDiagnostic<CR>
+noremap <C-e>ne :LspNextError<CR>
+noremap <C-e>nr :LspNextReference<CR>
+noremap <C-e>nw :LspNextWarning<CR>
+noremap <C-e>pe :LspPreviousError<CR>
+noremap <C-e>pr :LspPreviousReference<CR>
+noremap <C-e>pw :LspPreviousWarning<CR>
+noremap <C-e>rf :vs<CR>:LspReferences<CR>
+noremap <F6> :LspRename<CR>
+noremap <C-e>rn :LspRename<CR>
+" let g:lsp_highlight_references_enabled = 1
+" hi lspReference ctermfg=Black ctermbg=226
+
+" Code format
+vmap <C-e>f :FormatLines<CR>:LspDocumentRangeFormat<CR>
+nmap <C-e>f :FormatCode<CR>:LspDocumentFormat<CR>
+" Code format + isort(python)
+autocmd FileType python vmap <C-e>f <C-i>:FormatLines<CR>:LspDocumentRangeFormat<CR>
+autocmd FileType python nmap <C-e>f :Isort<CR>:FormatCode<CR>:LspDocumentFormat<CR>
 
 " ale
 " Use mypy only if it's available on the current virtualenv

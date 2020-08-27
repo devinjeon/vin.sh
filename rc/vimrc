@@ -9,7 +9,6 @@ set nocp " not compatible with `vi`
 set hls " hightlight search keywords
 set ruler " show current cursor location
 set history=1000 " history of vim command
-
 set expandtab " softtab(space)
 set tabstop=4 " tab size
 set sw=4 " tab size: shifting(`<<`, `>>`)
@@ -17,36 +16,56 @@ set sts=4 " tab size: shifting(`<<`, `>>`)
 set autoindent
 set backspace=indent,eol,start
 
+hi Search ctermbg=4 ctermfg=15
+
 " Plugins
 call plug#begin('~/.vim/plugged')
 
+" For Git
 Plug 'rhysd/committia.vim'
 Plug 'hotwatermorning/auto-git-diff'
-Plug 'dense-analysis/ale' " Asynchronous Lint Engine
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " - NERDTree
-Plug 'sheerun/vim-polyglot' " Highlight many languages syntax
-Plug 'tpope/vim-commentary' " Add shortcut `gc[c]` to comment out
-Plug 'eugen0329/vim-esearch' " Async search and replace
-Plug 'Yggdroot/indentLine'
+
+" NERDTree=<Leader>n
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+" Asyncsearch=<Leader>ff
+Plug 'eugen0329/vim-esearch'
+
+" Command-T=<Leader>t
 Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'}
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" Graph undo tree
+Plug 'simnalamburt/vim-mundo'
+
+" Show indent
+Plug 'Yggdroot/indentLine'
+
+" airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" For Python
 Plug 'fisadev/vim-isort'
+" For Golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " google/vimcodefmt
 Plug 'google/vim-maktaba'
 Plug 'google/vim-glaive'
 Plug 'google/vim-codefmt'
 
-" lsp
+" LSP
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
-" airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Other
+Plug 'tpope/vim-commentary' " Add shortcut `gc[c]` to comment out
+Plug 'sheerun/vim-polyglot' " Highlight many languages syntax
+Plug 'dense-analysis/ale' " Asynchronous Lint Engine
+
 
 call plug#end()
 
@@ -105,7 +124,6 @@ let g:indentLine_color_gui = '#767676'
 let g:airline_theme='bubblegum'
 
 " Custom
-hi Search ctermbg=4 ctermfg=15
 map <Leader>p :set paste<CR>
 map <Leader><S-p> :set nopaste<CR>
 map <C-j> <C-w>j

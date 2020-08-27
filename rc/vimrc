@@ -79,3 +79,7 @@ let g:indentLine_color_gui = '#767676'
 
 " Custom
 hi Search ctermbg=4 ctermfg=15
+map <Leader>p :set paste<CR>
+map <Leader><S-p> :set nopaste<CR>
+map <C-j> <C-w>j
+map <C-k> <C-w>k

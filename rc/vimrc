@@ -62,15 +62,15 @@ autocmd FileType bash,sh,zsh let b:codefmt_formatter='shfmt'
 " =================
 
 " Code format
-vnoremap <Leader>c :FormatLines<CR>:LspDocumentRangeFormat<CR>
-noremap <Leader>fc :FormatCode<CR>:LspDocumentFormat<CR>
+vnoremap <C-f>l :FormatLines<CR>:LspDocumentRangeFormat<CR>
+noremap <C-f>d :FormatCode<CR>:LspDocumentFormat<CR>
 
 " Python isort
 autocmd FileType python let g:vim_isort_map = '<C-i>'
 autocmd FileType python map <C-i> :Isort<CR>
 autocmd FileType python let g:vim_isort_python_version = 'python3'
-autocmd FileType python vnoremap <Leader>c <C-i>:FormatLines<CR>:LspDocumentRangeFormat<CR>
-autocmd FileType python noremap <Leader>fc :Isort<CR>:FormatCode<CR>:LspDocumentFormat<CR>
+autocmd FileType python vnoremap <C-f>l <C-i>:FormatLines<CR>:LspDocumentRangeFormat<CR>
+autocmd FileType python noremap <C-f>d :Isort<CR>:FormatCode<CR>:LspDocumentFormat<CR>
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>

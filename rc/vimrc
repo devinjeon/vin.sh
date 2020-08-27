@@ -147,6 +147,9 @@ let g:indentLine_color_gui = '#767676'
 " Airline theme
 let g:airline_theme='bubblegum'
 
+" Mundo
+nnoremap <F5> :MundoToggle<CR>
+
 " Custom
 map <Leader>p :set paste<CR>
 map <Leader><S-p> :set nopaste<CR>

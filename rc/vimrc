@@ -27,6 +27,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " - NERDTree
 Plug 'sheerun/vim-polyglot' " Highlight many languages syntax
 Plug 'tpope/vim-commentary' " Add shortcut `gc[c]` to comment out
 Plug 'eugen0329/vim-esearch' " Async search and replace
+Plug 'Yggdroot/indentLine'
 Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -63,3 +64,8 @@ noremap <Leader>fc :FormatCode<CR>:LspDocumentFormat<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+
+" indentLine
+let g:indentLine_char = '┆'
+let g:indentLine_color_term = 243
+let g:indentLine_color_gui = '#767676'

@@ -19,6 +19,16 @@ set backspace=indent,eol,start
 hi Search ctermbg=4 ctermfg=15
 hi Visual ctermbg=White ctermfg=Black
 
+" Custom shortcut
+nnoremap <C-p> :set paste<CR>i
+nnoremap <C-o> :set nopaste<CR>
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-q> :q<CR>
+
+" ==============================
 " Plugins
 call plug#begin('~/.vim/plugged')
 
@@ -67,19 +77,15 @@ Plug 'tpope/vim-commentary' " Add shortcut `gc[c]` to comment out
 Plug 'sheerun/vim-polyglot' " Highlight many languages syntax
 Plug 'dense-analysis/ale' " Asynchronous Lint Engine
 
-
 call plug#end()
+" ==============================
 
-" =================
 " google/vimcodefmt
-
 autocmd FileType c,cpp,proto let b:codefmt_formatter='clang-format'
 autocmd FileType vue,javascript,html,css,sass,scss,less,json let b:codefmt_formatter='prettier'
 autocmd FileType python let b:codefmt_formatter='yapf'
 autocmd FileType go let b:codefmt_formatter='gofmt'
 autocmd FileType bash,sh,zsh let b:codefmt_formatter='shfmt'
-
-" =================
 
 " Python isort
 autocmd FileType python let g:vim_isort_map = '<C-i>'
@@ -89,7 +95,7 @@ autocmd FileType python let g:vim_isort_python_version = 'python3'
 " NERDTree
 nnoremap <Leader>n :NERDTreeToggle<CR>
 
-" lsp
+" LSP
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
@@ -149,12 +155,3 @@ let g:airline_theme='bubblegum'
 
 " Mundo
 nnoremap <F5> :MundoToggle<CR>
-
-" Custom
-nnoremap <C-p> :set paste<CR>i
-nnoremap <C-o> :set nopaste<CR>
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <C-x> :q<CR>

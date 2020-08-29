@@ -46,6 +46,9 @@ Plug 'eugen0329/vim-esearch'
 Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'}
 
+" Multiple cursors=<C-n>
+Plug 'terryma/vim-multiple-cursors'
+
 " Graph undo tree
 Plug 'simnalamburt/vim-mundo'
 
@@ -58,6 +61,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " For Python
 Plug 'fisadev/vim-isort'
+
 " For Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 

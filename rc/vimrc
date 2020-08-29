@@ -52,6 +52,9 @@ Plug 'terryma/vim-multiple-cursors'
 " Graph undo tree
 Plug 'simnalamburt/vim-mundo'
 
+" Easymotion=<Leader><Leader>w
+Plug 'easymotion/vim-easymotion'
+
 " Show indent
 Plug 'Yggdroot/indentLine'
 

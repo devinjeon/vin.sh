@@ -174,3 +174,6 @@ nnoremap <F5> :MundoToggle<CR>
 
 " vim-signify async updatetime
 set updatetime=100
+hi DiffAdd ctermbg=Black ctermfg=Blue
+hi DiffChange ctermbg=Black ctermfg=Green
+hi DiffDelete ctermbg=Black ctermfg=Red

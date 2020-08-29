@@ -20,7 +20,7 @@ hi Visual cterm=reverse ctermbg=none ctermfg=White
 hi SignColumn cterm=none ctermfg=none ctermbg=Black
 
 " Custom shortcut
-nnoremap <C-p> :set paste<CR>i
+nnoremap <C-p> :set paste<CR>a
 nnoremap <C-o> :set nopaste<CR>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -123,7 +123,7 @@ let g:esearch.root_markers = ['.git', 'Makefile']
 " LSP
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+inoremap <expr> <cr>    pumvisible() ? "\<Esc>a" : "\<cr>"
 noremap <C-e>ca :LspCodeAction<CR>
 noremap <C-e>cl :LspCodeLens<CR>
 noremap gdd :LspDefinition<CR>

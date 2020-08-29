@@ -16,8 +16,9 @@ set sts=4 " tab size: shifting(`<<`, `>>`)
 set autoindent
 set backspace=indent,eol,start
 
-hi Search ctermbg=4 ctermfg=15
-hi Visual ctermbg=White ctermfg=Black
+hi Search cterm=reverse ctermbg=none ctermfg=Yellow
+hi Visual cterm=reverse ctermbg=none ctermfg=White
+hi SignColumn cterm=none ctermfg=none ctermbg=Black
 
 " Custom shortcut
 nnoremap <C-p> :set paste<CR>i

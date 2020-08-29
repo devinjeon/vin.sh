@@ -14,7 +14,6 @@ set tabstop=4 " tab size
 set sw=4 " tab size: shifting(`<<`, `>>`)
 set sts=4 " tab size: shifting(`<<`, `>>`)
 set autoindent
-set backspace=indent,eol,start
 
 hi Search cterm=reverse ctermbg=none ctermfg=Yellow
 hi Visual cterm=reverse ctermbg=none ctermfg=White
@@ -32,6 +31,8 @@ nnoremap <C-q> :q<CR>
 " ==============================
 " Plugins
 call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-sensible'
 
 " For Git
 Plug 'rhysd/committia.vim'

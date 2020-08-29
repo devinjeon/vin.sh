@@ -42,7 +42,7 @@ Plug 'mhinz/vim-signify' " Show diff during edit based on git
 " NERDTree=<Leader>n
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-" Asyncsearch=<Leader>ff
+" Asyncsearch=<C-f>
 Plug 'eugen0329/vim-esearch'
 
 " Command-T=<Leader>t
@@ -110,6 +110,15 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" esearch
+nmap <C-f> <Plug>(esearch)
+let g:esearch = {}
+let g:esearch.regex   = 1
+let g:esearch.textobj = 0
+let g:esearch.case    = 'smart'
+let g:esearch.prefill = ['hlsearch', 'last', 'clipboard']
+let g:esearch.root_markers = ['.git', 'Makefile']
 
 " LSP
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

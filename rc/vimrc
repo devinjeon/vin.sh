@@ -58,6 +58,9 @@ Plug 'easymotion/vim-easymotion'
 " Show indent
 Plug 'Yggdroot/indentLine'
 
+" Tagbar(ctags should be installed)=<F8>
+Plug 'majutsushi/tagbar'
+
 " airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -101,6 +104,9 @@ autocmd FileType python let g:vim_isort_python_version = 'python3'
 
 " NERDTree
 nnoremap <Leader>n :NERDTreeToggle<CR>
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
 
 " LSP
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

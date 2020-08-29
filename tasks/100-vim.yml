@@ -4,9 +4,14 @@
     repo: "https://github.com/vim/vim.git"
     dest: /tmp/vim
 
-- name: Install Vim - install ruby for command-t (step 2/7)
+- name: Install Vim - install dependencies for plugins (step 2/7)
   apt:
-    name: ruby-full
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - ruby-full
+      - ctags
   become: true
 
 - name: Install Vim - make (step 3/7)

@@ -15,5 +15,5 @@ git config --global include.path "$HOME/.git-aliases"
 
 # git ignore maker
 function gi() {
-    curl -XGET https://www.gitignore.io/api/$@
+    curl -sL https://www.gitignore.io/api/$@
 }

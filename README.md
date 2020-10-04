@@ -3,14 +3,13 @@
 </p>
 
 
-It is my development environment on Ubuntu 18.04+.
+It is my development environment on OS X.
 
 The goal is just one command installation with idempotent.
 
 ## Dependency
 
 * Installing `vin.sh` requires `Ansible`.
-* Both `run` and` test` scripts run the `install-ansible` script to install `Ansible` if it does not exists.
 
 ## How to install `vin.sh`
 

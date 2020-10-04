@@ -18,7 +18,16 @@
     state: latest
     update_homebrew: yes
 
-- name: Install python packages (step 2/3)
+- name: Install python-pip - Download get-pip.py
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: /tmp/get-pip.py
+    mode: 0440
+
+- name: Install python-pip
+  shell: "python /tmp/get-pip.py; python3 /tmp/get-pip.py"
+
+- name: Install python packages
   pip:
     name: "{{ packages }}"
     executable: pip3

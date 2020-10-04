@@ -28,6 +28,10 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-q> :q<CR>
 
+" Disable syntax highlighting
+" polyglot_disabled should be defined before loading vim-polyglot
+let g:polyglot_disabled = ['markdown']
+
 " ==============================
 " Plugins
 call plug#begin('~/.vim/plugged')

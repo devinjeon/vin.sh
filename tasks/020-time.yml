@@ -1,12 +1,4 @@
 ---
-- name: Set KST timezone
-  file:
-    src: /usr/share/zoneinfo/Asia/Seoul
-    dest: /etc/localtime
-    state: link
-    force: true
-  become: true
-
 - name: Add cronjob to sync time
   cron:
     name: "timesync daily"

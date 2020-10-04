@@ -1,10 +1,9 @@
 ---
 
 - name: Install clang formatter
-  apt:
+  homebrew:
     name: clang-format
     state: latest
-  become: true
 
 - name: Install python formatter (step 1/3)
   pip:

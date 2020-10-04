@@ -1,24 +1,3 @@
 ---
-- name: Install docker - Get install script (step 1/4)
-  get_url:
-    url: https://get.docker.com/
-    dest: /tmp/install_docker.sh
-  become: true
-
-- name: Install docker - Run the install script (step 2/4)
-  shell: bash /tmp/install_docker.sh
-  become: true
-
-- name: Install docker - Remove the install script (step 3/4)
-  file:
-    path: /tmp/install_docker.sh
-    state: absent
-  become: true
-
-- name: Install docker - get current user name (step 2/11)
-  shell: whoami
-  register: username
-
-- name: Install docker - Append user to docker group (step 4/4)
-  shell: "usermod -aG docker {{ username.stdout }}"
-  become: true
+# Docker desktop should be installed on OS X
+# https://www.docker.com/products/docker-desktop

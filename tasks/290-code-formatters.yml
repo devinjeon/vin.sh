@@ -9,7 +9,6 @@
   pip:
     name: yapf
     executable: pip3
-  become: true
 
 - name: Install python formatter - Make yapf config dir (step 2/3)
   file:
@@ -30,4 +29,3 @@
   npm:
     name: prettier
     global: yes
-  become: true

@@ -45,7 +45,9 @@ for p in $(find "$HOME/.rc/" -not -type d); do
   source "$p"
 done
 
-if [ -z "$TMUX" ]; then
+# Prevent terminal emulator from executing Tmux automatically
+# e.g.) TERMINAL_EMULATOR=JetBrains-JediTerm (on IntelliJ)
+if [[ -z "$TMUX" && -z "$TERMINAL_EMULATOR" ]]; then
   session="default"
   (tmux has-session -t "$session" && tmux attach -t "$session") || tmux new -s "$session"
 fi

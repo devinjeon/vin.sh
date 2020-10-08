@@ -47,5 +47,5 @@ done
 
 if [ -z "$TMUX" ]; then
   session="default"
-  (tmux has-session -t "$session" || tmux new -s "$session") && tmux attach -t "$session"
+  (tmux has-session -t "$session" && tmux attach -t "$session") || tmux new -s "$session"
 fi

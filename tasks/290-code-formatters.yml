@@ -1,0 +1,34 @@
+---
+
+- name: Install clang formatter
+  apt:
+    name: clang-format
+    state: latest
+  become: true
+
+- name: Install python formatter (step 1/3)
+  pip:
+    name: yapf
+    executable: pip3
+  become: true
+
+- name: Install python formatter - Make yapf config dir (step 2/3)
+  file:
+    path: ~/.config/yapf
+    state: directory
+
+- name: Install python formatter - Create yapf default config symbolic link (step 3/3)
+  file:
+    src: "{{ playbook_dir }}/rc/yapf_config"
+    dest: ~/.config/yapf/style
+    state: link
+    force: true
+
+- name: Install shell formatter
+  shell: zsh -c ". {{ playbook_dir }}/rc/golangenv && go get mvdan.cc/sh/cmd/shfmt"
+
+- name: Install prettier(html, js, css, etc ...) formatter
+  npm:
+    name: prettier
+    global: yes
+  become: true

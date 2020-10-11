@@ -15,6 +15,7 @@
       - coreutils
       - gnu-sed
       - gnu-tar
+      - gh
     state: latest
     update_homebrew: yes
 

@@ -8,6 +8,8 @@ export EDITOR="vim"
 export LANG="en_US.UTF-8"
 export LC_ALL=$LANG
 
+export ORIGIN_PATH=$PATH
+
 # NOTE: `*-magic` is known buggy in some zsh versions.
 # (see: https://github.com/robbyrussell/oh-my-zsh/blob/e604eaf55/lib/misc.zsh#L3)
 #
@@ -50,4 +52,8 @@ done
 if [[ -z "$TMUX" && -z "$TERMINAL_EMULATOR" ]]; then
   session="default"
   (tmux has-session -t "$session" && tmux attach -t "$session") || tmux new -s "$session"
+else
+  # Prevent PATH from being duplicated in Tmux session
+  # ref: https://stackoverflow.com/questions/13058578/how-to-prevent-tmux-from-filling-up-the-global-path-variable-with-duplicated-pat
+  export PATH=$ORIGIN_PATH
 fi

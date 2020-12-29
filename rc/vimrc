@@ -53,6 +53,9 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 " Sort Python imports
 Plug 'fisadev/vim-isort'
+" For markdown syntax highlight
+Plug 'godlygeek/tabular' " Require to format table
+Plug 'plasticboy/vim-markdown'
 " Highlight many languages syntax
 Plug 'sheerun/vim-polyglot'
 " Graph undo tree
@@ -169,6 +172,10 @@ au FileType sh         setl ts=2 sw=2 sts=2 et
 au FileType zsh        setl ts=2 sw=2 sts=2 et
 au FileType vim        setl ts=2 sw=2 sts=2 et
 au FileType terraform  setl ts=2 sw=2 sts=2 et cc=
+
+" disable markdown folding and concealing
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
 
 " Clear my custom matches.
 " NOTE: match is not cumulative. So there are 2match, 3match variants.

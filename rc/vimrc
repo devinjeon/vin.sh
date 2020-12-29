@@ -131,10 +131,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<Esc>a" : "\<cr>"
 noremap <C-e>ca :LspCodeAction<CR>
 noremap <C-e>cl :LspCodeLens<CR>
-noremap gdd :LspDefinition<CR>
-noremap gdt :tab LspDefinition<CR>
-noremap gdv :rightbelow vertical LspDefinition<CR>
-noremap gdh :rightbelow LspDefinition<CR>
+noremap gd :LspDefinition<CR>
 noremap <C-e>gd :LspDefinition<CR>
 noremap <C-e>da :tab split<CR>:LspDocumentDiagnostics<CR>
 noremap <C-e>ss :LspDocumentSymbol<CR>

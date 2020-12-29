@@ -78,6 +78,7 @@ call plug#end()
 hi Search cterm=reverse ctermbg=none ctermfg=Yellow
 hi Visual cterm=reverse ctermbg=none ctermfg=White
 hi SignColumn cterm=none ctermfg=none ctermbg=Black
+hi ColorColumn ctermbg=240 ctermfg=White
 
 " indentLine
 let g:indentLine_char = '┆'
@@ -150,6 +151,36 @@ set sw=4 " tab size: shifting(`<<`, `>>`)
 set sts=4 " tab size: shifting(`<<`, `>>`)
 set tabstop=4 " tab size
 set expandtab " softtab(space)
+set cc=81 " guide column
+" language specific
+" Ref: https://github.com/sublee/sub.sh/blob/master/vimrc
+au FileType cpp        setl ts=2 sw=2 sts=2 et
+au FileType javascript setl ts=2 sw=2 sts=2 et
+au FileType xml        setl ts=2 sw=2 sts=2 et
+au FileType yaml       setl ts=2 sw=2 sts=2 et
+au FileType html       setl ts=2 sw=2 sts=2 et
+au FileType css        setl ts=2 sw=2 sts=2 et
+au FileType sass       setl ts=2 sw=2 sts=2 et
+au Filetype rst        setl ts=3 sw=3 sts=3 et
+au FileType go         setl ts=4 sw=4 sts=4 noet cc=
+au FileType make       setl ts=4 sw=4 sts=4 noet
+au FileType sh         setl ts=2 sw=2 sts=2 et
+au FileType zsh        setl ts=2 sw=2 sts=2 et
+au FileType vim        setl ts=2 sw=2 sts=2 et
+au FileType terraform  setl ts=2 sw=2 sts=2 et cc=
+
+" Clear my custom matches.
+" NOTE: match is not cumulative. So there are 2match, 3match variants.
+" https://unix.stackexchange.com/a/139499"
+" Ref: https://github.com/sublee/sub.sh/blob/master/vimrc
+au BufEnter * silent! call matchdelete(8903)
+
+" Keep maximum columns.
+" Ref: https://github.com/sublee/sub.sh/blob/master/vimrc
+au BufEnter *
+\ if &cc
+\|  call matchadd('Error', '\%>'.(&cc-1).'v.\+', 0, 8903)
+\|endif
 
 " [vim-signify]
 " Set async updatetime

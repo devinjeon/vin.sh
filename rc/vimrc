@@ -1,23 +1,97 @@
-" setting for encoding
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=ucs-bom,utf-8,cp949,latin1
+" --------------------------------------------------
+" Plugins
+" --------------------------------------------------
 
-syntax on " Enable highlighting syntax
+call plug#begin('~/.vim/plugged')
 
-set nocp " not compatible with `vi`
-set hls " hightlight search keywords
-set ruler " show current cursor location
-set history=1000 " history of vim command
-set expandtab " softtab(space)
-set tabstop=4 " tab size
-set sw=4 " tab size: shifting(`<<`, `>>`)
-set sts=4 " tab size: shifting(`<<`, `>>`)
-set autoindent
+
+" [Plugins for theme]
+" airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+
+" [Plugins for file searching]
+" Asyncsearch=<C-f>
+Plug 'eugen0329/vim-esearch'
+" Command-T (file search)=<Leader>t
+Plug 'wincent/command-t', {
+    \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'}
+" NERDTree=<Leader>n
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+
+" [Plugins for handling cursor]
+" Multiple cursors=<C-n>
+Plug 'terryma/vim-multiple-cursors'
+" Easymotion=<Leader><Leader>w
+Plug 'easymotion/vim-easymotion'
+
+
+" [Plugins for Git]
+" More Pleasant Editing on Commit Message
+Plug 'rhysd/committia.vim'
+" Show git diff for Git Rebase Interactive
+Plug 'hotwatermorning/auto-git-diff'
+" Show diff during edit based on Git
+Plug 'mhinz/vim-signify'
+
+
+" [Plugins for developments]
+" Show indent
+Plug 'Yggdroot/indentLine'
+" Tagbar(ctags should be installed)=<F8>
+Plug 'majutsushi/tagbar'
+" Code formatter google/vimcodefmt
+Plug 'google/vim-maktaba'
+Plug 'google/vim-glaive'
+Plug 'google/vim-codefmt'
+" LSP
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Sort Python imports
+Plug 'fisadev/vim-isort'
+" Highlight many languages syntax
+Plug 'sheerun/vim-polyglot'
+" Graph undo tree
+Plug 'simnalamburt/vim-mundo'
+" Add shortcut `gc[c]` to comment out
+Plug 'tpope/vim-commentary'
+" Asynchronous Lint Engine
+Plug 'dense-analysis/ale'
+
+
+" [Etc]
+" a universal set of defaults for Vim
+Plug 'tpope/vim-sensible'
+
+call plug#end()
+
+
+
+" --------------------------------------------------
+"  Theme
+" --------------------------------------------------
 
 hi Search cterm=reverse ctermbg=none ctermfg=Yellow
 hi Visual cterm=reverse ctermbg=none ctermfg=White
 hi SignColumn cterm=none ctermfg=none ctermbg=Black
+
+" indentLine
+let g:indentLine_char = '┆'
+let g:indentLine_color_term = 243
+let g:indentLine_color_gui = '#767676'
+
+" Airline theme
+let g:airline_theme='bubblegum'
+
+
+
+" --------------------------------------------------
+"  Mapping
+" --------------------------------------------------
 
 " Custom shortcut
 nnoremap <C-p> :set paste<CR>a
@@ -28,166 +102,83 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-q> :q<CR>
 
-" Disable syntax highlighting
-" polyglot_disabled should be defined before loading vim-polyglot
-let g:polyglot_disabled = ['markdown']
+" [prabirshrestha/vim-lsp]
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<Esc>a" : "\<cr>"
+noremap gd :tab LspDefinition<CR>
+noremap <C-e>da :LspDocumentDiagnostics<CR>
+noremap <C-e>h :LspHover<CR>
+noremap <F6> :LspRename<CR>
 
-" ==============================
-" Plugins
-call plug#begin('~/.vim/plugged')
+" [scrooloose/nerdtree]
+nnoremap <Leader>n :NERDTreeToggle<CR>
 
-Plug 'tpope/vim-sensible'
+" [majutsushi/tagbar]
+nmap <F8> :TagbarToggle<CR>
 
-" For Git
-Plug 'rhysd/committia.vim'
-Plug 'hotwatermorning/auto-git-diff'
-Plug 'mhinz/vim-signify' " Show diff during edit based on git
+" [eugen0329/vim-esearch]
+nmap <C-f> <Plug>(esearch)
 
-" NERDTree=<Leader>n
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-let NERDTreeShowHidden=1
+" [prabirshrestha/vim-lsp]
+" [google/vim-codefmt]
+vmap <silent> <C-e>f :silent LspDocumentRangeFormat<CR>:silent FormatLines<CR>
+nmap <silent> <C-e>f :silent LspDocumentFormat<CR>:silent FormatCode<CR>
 
-" Asyncsearch=<C-f>
-Plug 'eugen0329/vim-esearch'
+" [simnalamburt/vim-mundo]
+nnoremap <F5> :MundoToggle<CR>
 
-" Command-T=<Leader>t
-Plug 'wincent/command-t', {
-    \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'}
 
-" Multiple cursors=<C-n>
-Plug 'terryma/vim-multiple-cursors'
+" --------------------------------------------------
+"  Development
+" --------------------------------------------------
 
-" Graph undo tree
-Plug 'simnalamburt/vim-mundo'
+" setting for encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp949,latin1
+set nocp " not compatible with `vi`
+set hls " hightlight search keywords
+set ruler " show current cursor location
+set history=1000 " history of vim command
+set autoindent
+syntax on " Enable highlighting syntax
 
-" Easymotion=<Leader><Leader>w
-Plug 'easymotion/vim-easymotion'
+" Set tab/indent/columns conventions
+" default
+set sw=4 " tab size: shifting(`<<`, `>>`)
+set sts=4 " tab size: shifting(`<<`, `>>`)
+set tabstop=4 " tab size
+set expandtab " softtab(space)
 
-" Show indent
-Plug 'Yggdroot/indentLine'
+" [vim-signify]
+" Set async updatetime
+set updatetime=100
+hi DiffAdd ctermbg=Black ctermfg=Blue
+hi DiffChange ctermbg=Black ctermfg=Green
+hi DiffDelete ctermbg=Black ctermfg=Red
 
-" Tagbar(ctags should be installed)=<F8>
-Plug 'majutsushi/tagbar'
+" [dense-analysis/ale]
+" Use mypy only if available on the current environment
+let g:ale_python_mypy_executable = 'python -m mypy'
 
-" airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" For Python
-Plug 'fisadev/vim-isort'
-
-" For Golang
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" google/vimcodefmt
-Plug 'google/vim-maktaba'
-Plug 'google/vim-glaive'
-Plug 'google/vim-codefmt'
-
-" LSP
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
-" Other
-Plug 'tpope/vim-commentary' " Add shortcut `gc[c]` to comment out
-Plug 'sheerun/vim-polyglot' " Highlight many languages syntax
-Plug 'dense-analysis/ale' " Asynchronous Lint Engine
-
-call plug#end()
-" ==============================
-
-" google/vimcodefmt
+" [google/vim-codefmt]
+" Set formatter for languages
 autocmd FileType c,cpp,proto let b:codefmt_formatter='clang-format'
 autocmd FileType vue,javascript,html,css,sass,scss,less,json let b:codefmt_formatter='prettier'
 autocmd FileType python let b:codefmt_formatter='yapf'
-autocmd FileType go let b:codefmt_formatter='gofmt'
 autocmd FileType bash,sh,zsh let b:codefmt_formatter='shfmt'
 
-" Python isort
-autocmd FileType python let g:vim_isort_map = '<C-i>'
-autocmd FileType python map <C-i> :Isort<CR>
+" [fisadev/vim-isort]
 autocmd FileType python let g:vim_isort_python_version = 'python3'
 
-" NERDTree
-nnoremap <Leader>n :NERDTreeToggle<CR>
+" [scrooloose/nerdtree]
+let NERDTreeShowHidden=1
 
-" tagbar
-nmap <F8> :TagbarToggle<CR>
-
-" esearch
-nmap <C-f> <Plug>(esearch)
+" [eugen0329/vim-esearch]
 let g:esearch = {}
 let g:esearch.regex   = 1
 let g:esearch.textobj = 0
 let g:esearch.case    = 'smart'
 let g:esearch.prefill = ['hlsearch', 'last', 'clipboard']
 let g:esearch.root_markers = ['.git', 'Makefile']
-
-" LSP
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<Esc>a" : "\<cr>"
-noremap <C-e>ca :LspCodeAction<CR>
-noremap <C-e>cl :LspCodeLens<CR>
-noremap gd :LspDefinition<CR>
-noremap <C-e>gd :LspDefinition<CR>
-noremap <C-e>da :tab split<CR>:LspDocumentDiagnostics<CR>
-noremap <C-e>ss :LspDocumentSymbol<CR>
-noremap <C-e>h :LspHover<CR>
-noremap <C-e>nd :LspNextDiagnostic<CR>
-noremap <C-e>ne :LspNextError<CR>
-noremap <C-e>nr :LspNextReference<CR>
-noremap <C-e>nw :LspNextWarning<CR>
-noremap <C-e>pe :LspPreviousError<CR>
-noremap <C-e>pr :LspPreviousReference<CR>
-noremap <C-e>pw :LspPreviousWarning<CR>
-noremap <C-e>rf :vs<CR>:LspReferences<CR>
-noremap <F6> :LspRename<CR>
-noremap <C-e>rn :LspRename<CR>
-" let g:lsp_highlight_references_enabled = 1
-" hi lspReference ctermfg=Black ctermbg=226
-
-" Code format
-vmap <C-e>f :FormatLines<CR>:LspDocumentRangeFormat<CR>
-nmap <C-e>f :FormatCode<CR>:LspDocumentFormat<CR>
-" Code format + isort(python)
-autocmd FileType python vmap <C-e>f <C-i>:FormatLines<CR>:LspDocumentRangeFormat<CR>
-autocmd FileType python nmap <C-e>f :Isort<CR>:FormatCode<CR>:LspDocumentFormat<CR>
-
-" ale
-" Use mypy only if it's available on the current virtualenv
-let g:ale_python_mypy_executable = 'python -m mypy'
-
-" python line length
-augroup filetype_python
-  autocmd!
-  " highlight characters past column 80
-  autocmd FileType python hi Excess ctermbg=Red ctermfg=White guibg=Red
-  autocmd FileType python match Excess /\%81v.*/
-  autocmd FileType python set nowrap
-  autocmd FileType python hi ColorColumn ctermbg=240 ctermfg=White
-  autocmd FileType python set colorcolumn=80
-  autocmd FileType python set expandtab
-augroup END
-
-" indentLine
-let g:indentLine_char = '┆'
-let g:indentLine_color_term = 243
-let g:indentLine_color_gui = '#767676'
-
-" Airline theme
-let g:airline_theme='bubblegum'
-
-" Mundo
-nnoremap <F5> :MundoToggle<CR>
-
-" vim-signify async updatetime
-set updatetime=100
-hi DiffAdd ctermbg=Black ctermfg=Blue
-hi DiffChange ctermbg=Black ctermfg=Green
-hi DiffDelete ctermbg=Black ctermfg=Red
-
-" vim-lsp runs gopls instead of vim-go
-let g:go_gopls_enabled = 0

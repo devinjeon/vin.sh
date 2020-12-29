@@ -173,7 +173,18 @@ au FileType terraform  setl ts=2 sw=2 sts=2 et cc=
 " NOTE: match is not cumulative. So there are 2match, 3match variants.
 " https://unix.stackexchange.com/a/139499"
 " Ref: https://github.com/sublee/sub.sh/blob/master/vimrc
+au BufEnter * silent! call matchdelete(8902)
 au BufEnter * silent! call matchdelete(8903)
+
+" raw underline for wrong tabs.
+" Ref: https://github.com/sublee/sub.sh/blob/master/vimrc
+hi WrongTab term=underline cterm=underline
+au BufEnter *
+\ if &expandtab
+\|  call matchadd('WrongTab', '\t\+', 0, 8902)
+\|else
+\|  call matchadd('WrongTab', '\(^\s*\)\@<=  \+', 0, 8902)
+\|endif
 
 " Keep maximum columns.
 " Ref: https://github.com/sublee/sub.sh/blob/master/vimrc

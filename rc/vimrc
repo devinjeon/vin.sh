@@ -217,6 +217,12 @@ hi DiffDelete ctermbg=Black ctermfg=Red
 " [dense-analysis/ale]
 " Use mypy only if available on the current environment
 let g:ale_python_mypy_executable = 'python -m mypy'
+" Fix automatically when saving
+let g:ale_fixers = {
+\   'go': ['goimports'],
+\   'python': ['isort']
+\}
+let g:ale_fix_on_save = 1
 
 " [google/vim-codefmt]
 " Set formatter for languages

@@ -143,6 +143,7 @@ set hls " hightlight search keywords
 set ruler " show current cursor location
 set history=1000 " history of vim command
 set autoindent
+set fileformat=unix " Don't use CRLF
 syntax on " Enable highlighting syntax
 
 " Set tab/indent/columns conventions

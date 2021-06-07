@@ -1,7 +1,7 @@
 ---
 - name: Install GoLang - download and unarchive (step 1/2)
   unarchive:
-    src: https://dl.google.com/go/go1.14.linux-amd64.tar.gz
+    src: https://dl.google.com/go/go1.16.5.linux-amd64.tar.gz
     dest: /usr/local/
     remote_src: true
   become: true

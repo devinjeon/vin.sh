@@ -13,3 +13,10 @@
     dest: ~/.git-aliases
     state: link
     force: true
+
+- name: Create cargorc symbolic link
+  file:
+    src: "{{ playbook_dir }}/rc/cargorc"
+    dest: ~/.rc/cargorc
+    state: link
+    force: true

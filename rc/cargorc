@@ -1,0 +1,1 @@
+export PATH=$PATH:/root/.cargo/bin:$HOME/.cargo/bin

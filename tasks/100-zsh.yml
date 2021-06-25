@@ -5,56 +5,56 @@
     state: latest
   become: true
 
-- name: Install Oh My Zsh - get current user name (step 2/11)
+- name: Install Oh My Zsh - get current user name (step 2/12)
   shell: whoami
   register: username
 
-- name: Install Oh My Zsh - set default shell to zsh (step 3/11)
+- name: Install Oh My Zsh - set default shell to zsh (step 3/12)
   user:
     name: "{{ username.stdout }}"
     shell: /usr/bin/zsh
   become: true
 
-- name: Install Oh My Zsh - download oh-my-zsh (step 4/11)
+- name: Install Oh My Zsh - download oh-my-zsh (step 4/12)
   git:
     repo: "https://github.com/robbyrussell/oh-my-zsh.git"
     dest: ~/.oh-my-zsh
 
-- name: Install Oh My Zsh - make directory for zsh plugins (step 5/11)
+- name: Install Oh My Zsh - make directory for zsh plugins (step 5/12)
   file:
     path: ~/.oh-my-zsh/custom/plugins
     state: directory
     recurse: true
 
-- name: Install Oh My Zsh - install plugin `zsh-syntax-highlighting` (step 6/11)
+- name: Install Oh My Zsh - install plugin `zsh-syntax-highlighting` (step 6/12)
   git:
     repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
     dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
-- name: Install Oh My Zsh - install plugin `zsh-autosuggestions` (step 7/11)
+- name: Install Oh My Zsh - install plugin `zsh-autosuggestions` (step 7/12)
   git:
     repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
     dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-- name: Install Oh My Zsh - install plugin `git-flow-completion` (step 8/11)
+- name: Install Oh My Zsh - install plugin `git-flow-completion` (step 8/12)
   git:
     repo: "https://github.com/bobthecow/git-flow-completion.git"
     dest: ~/.oh-my-zsh/custom/plugins/git-flow-completion
 
-- name: Install Oh My Zsh - make directory for zsh themes (step 9/11)
+- name: Install Oh My Zsh - make directory for zsh themes (step 9/12)
   file:
     path: ~/.oh-my-zsh/custom/themes
     state: directory
     recurse: true
 
-- name: Install Oh My Zsh - Create vin.zsh-theme symbolic link (step 10/11)
+- name: Install Oh My Zsh - Create vin.zsh-theme symbolic link (step 10/12)
   file:
     src: "{{ playbook_dir }}/rc/vin.zsh-theme"
     dest: ~/.oh-my-zsh/custom/themes/vin.zsh-theme
     state: link
     force: true
 
-- name: Install Oh My Zsh - Create zshrc symbolic link (step 11/11)
+- name: Install Oh My Zsh - Create zshrc symbolic link (step 11/12)
   file:
     src: "{{ playbook_dir }}/rc/zshrc"
     dest: ~/.zshrc

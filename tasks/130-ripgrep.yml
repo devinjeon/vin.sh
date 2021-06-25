@@ -1,0 +1,4 @@
+---
+- name: Install ripgrep 0.10.0
+  shell: cargo install ripgrep
+  become: true

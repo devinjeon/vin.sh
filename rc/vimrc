@@ -111,8 +111,10 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<Esc>a" : "\<cr>"
 noremap gd :tab LspDefinition<CR>
+noremap gi :tab LspImplementation<CR>
+noremap gr :tab LspReferences<CR>
+noremap gh :LspHover<CR>
 noremap <C-e>da :LspDocumentDiagnostics<CR>
-noremap <C-e>h :LspHover<CR>
 noremap <F6> :LspRename<CR>
 
 " [scrooloose/nerdtree]

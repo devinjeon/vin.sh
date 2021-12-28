@@ -1,7 +1,7 @@
 ---
 - name: Install shellcheck - download (step 1/4)
   unarchive:
-    src: https://storage.googleapis.com/shellcheck/shellcheck-latest.linux.x86_64.tar.xz
+    src: https://github.com/koalaman/shellcheck/releases/download/latest/shellcheck-latest.linux.x86_64.tar.xz
     dest: /tmp/
     remote_src: true
 

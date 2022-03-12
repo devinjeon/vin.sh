@@ -1,0 +1,14 @@
+- name: Install Kubernetes environments - Copy env file (step 1/2)
+  file:
+    src: "{{ playbook_dir }}/rc/kubernetes"
+    dest: ~/.rc/kubernetes
+    state: link
+    force: true
+
+- name: Install Kubernetes environments - Install tools (step 2/2)
+  homebrew:
+    name:
+      - kubectl
+      - kubectx
+      - k9s
+    state: present

@@ -14,3 +14,4 @@
   - import_tasks: tasks/220-nodejs.yml
   - import_tasks: tasks/230-clang.yml
   - import_tasks: tasks/240-shell.yml
+  - import_tasks: tasks/300-kubernetes.yml

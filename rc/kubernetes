@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# kubectl krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# kubectl autocomplete
+alias k='kubectl'
+complete -F __start_kubectl k
+
+# shellcheck disable=SC1090
+. <(kubectl completion zsh)

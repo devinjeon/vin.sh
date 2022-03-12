@@ -4,12 +4,12 @@
   - import_tasks: tasks/000-default-packages.yml
   - import_tasks: tasks/010-rc.yml
   - import_tasks: tasks/020-time.yml
-  - import_tasks: tasks/100-vim.yml
-  - import_tasks: tasks/120-zsh.yml
-  - import_tasks: tasks/130-tools.yml
-  - import_tasks: tasks/150-docker.yml
-  - import_tasks: tasks/160-python.yml
-  - import_tasks: tasks/170-tmux.yml
-  - import_tasks: tasks/180-golang.yml
-  - import_tasks: tasks/190-nodejs.yml
-  - import_tasks: tasks/900-code-formatters.yml
+  - import_tasks: tasks/100-zsh.yml
+  - import_tasks: tasks/110-vim.yml
+  - import_tasks: tasks/120-tmux.yml
+  - import_tasks: tasks/130-docker.yml
+  - import_tasks: tasks/190-tools.yml
+  - import_tasks: tasks/200-python.yml
+  - import_tasks: tasks/210-golang.yml
+  - import_tasks: tasks/220-nodejs.yml
+  - import_tasks: tasks/290-code-formatters.yml

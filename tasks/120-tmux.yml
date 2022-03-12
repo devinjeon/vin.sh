@@ -1,6 +1,8 @@
 - name: Install tmux (step 1/5)
   homebrew:
-    name: tmux
+    name:
+      - tmux
+      - fpp
     state: present
 
 - name: Install tmux - Create tmux.conf symbolic link (step 2/5)
@@ -20,7 +22,7 @@
           && ~/.tmux/plugins/tpm/bin/update_plugins all \
           && ~/.tmux/plugins/tpm/bin/clean_plugins"
 
-- name: Install tmux - install fpp (step 5/5)
-  homebrew:
-    name: fpp
-    state: present
+- name: Install tmux - install kube-tmux  (step 3/5)
+  git:
+    repo: "https://github.com/jonmosco/kube-tmux.git"
+    dest: ~/.tmux/kube-tmux

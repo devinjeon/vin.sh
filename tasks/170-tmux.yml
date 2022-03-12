@@ -1,22 +1,26 @@
-- name: Install tmux (step 1/4)
-  apt:
+- name: Install tmux (step 1/5)
+  brew:
     name: tmux
-    state: latest
-  become: true
+    state: present
 
-- name: Install tmux - Create tmux.conf symbolic link (step 2/4)
+- name: Install tmux - Create tmux.conf symbolic link (step 2/5)
   file:
     src: "{{ playbook_dir }}/rc/tmux.conf"
     dest: ~/.tmux.conf
     state: link
     force: true
 
-- name: Install tmux - install tmux plugin manager(tpm) (step 3/4)
+- name: Install tmux - install tmux plugin manager(tpm) (step 3/5)
   git:
     repo: "https://github.com/tmux-plugins/tpm.git"
     dest: ~/.tmux/plugins/tpm
 
-- name: Install tmux - install tmux plugins (step 4/4)
+- name: Install tmux - install tmux plugins (step 4/5)
   shell: "~/.tmux/plugins/tpm/bin/install_plugins \
           && ~/.tmux/plugins/tpm/bin/update_plugins all \
           && ~/.tmux/plugins/tpm/bin/clean_plugins"
+
+- name: Install tmux - install fpp (step 5/5)
+  brew:
+    name: fpp
+    state: present

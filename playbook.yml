@@ -5,10 +5,8 @@
   - import_tasks: tasks/010-rc.yml
   - import_tasks: tasks/020-time.yml
   - import_tasks: tasks/100-vim.yml
-  - import_tasks: tasks/110-shellcheck.yml
   - import_tasks: tasks/120-zsh.yml
-  - import_tasks: tasks/130-ripgrep.yml
-  - import_tasks: tasks/140-fpp.yml
+  - import_tasks: tasks/130-tools.yml
   - import_tasks: tasks/150-docker.yml
   - import_tasks: tasks/160-python-virtualenvwrapper.yml
   - import_tasks: tasks/170-tmux.yml

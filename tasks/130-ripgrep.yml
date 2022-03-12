@@ -1,5 +1,0 @@
----
-- name: Install ripgrep 0.10.0
-  apt:
-    deb: https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
-  become: true

@@ -1,0 +1,7 @@
+---
+- name: Install tools for CLI environment
+  brew:
+    name:
+      - ripgrep
+      - shellcheck
+    state: present

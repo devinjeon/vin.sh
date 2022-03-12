@@ -1,9 +1,8 @@
 ---
 - name: Install Oh My Zsh - install zsh (step 1/11)
-  apt:
+  brew:
     name: zsh
-    state: latest
-  become: true
+    state: present
 
 - name: Install Oh My Zsh - get current user name (step 2/11)
   shell: whoami
@@ -12,7 +11,7 @@
 - name: Install Oh My Zsh - set default shell to zsh (step 3/11)
   user:
     name: "{{ username.stdout }}"
-    shell: /usr/bin/zsh
+    shell: /home/linuxbrew/.linuxbrew/bin/zsh
   become: true
 
 - name: Install Oh My Zsh - download oh-my-zsh (step 4/11)

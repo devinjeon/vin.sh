@@ -1,5 +1,5 @@
 ---
-- name: Install default packages (step 1/2)
+- name: Install default packages (step 1/4)
   apt:
     name: "{{ packages }}"
     update_cache: true
@@ -40,7 +40,7 @@
       - zip
   become: true
 
-- name: Install python packages (step 2/2)
+- name: Install python packages (step 2/4)
   pip:
     name: "{{ packages }}"
     executable: pip3
@@ -49,3 +49,10 @@
     - awscli
     - mycli
   become: true
+
+- name: Install homebrew (step 3/4)
+  shell: "/bin/bash -c \"NONINTERACTIVE=1 $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+
+- name: Update homebrew (step 4/4)
+  brew:
+    update_homebrew: yes

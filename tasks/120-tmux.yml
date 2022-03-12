@@ -1,5 +1,5 @@
 - name: Install tmux (step 1/5)
-  brew:
+  homebrew:
     name: tmux
     state: present
 
@@ -21,6 +21,6 @@
           && ~/.tmux/plugins/tpm/bin/clean_plugins"
 
 - name: Install tmux - install fpp (step 5/5)
-  brew:
+  homebrew:
     name: fpp
     state: present

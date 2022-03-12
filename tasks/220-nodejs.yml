@@ -1,5 +1,5 @@
 ---
 - name: Install Node.js
-  brew:
+  homebrew:
     name: node
     state: present

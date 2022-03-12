@@ -1,6 +1,6 @@
 ---
 - name: Install tools for CLI environment
-  brew:
+  homebrew:
     name:
       - ripgrep
       - shellcheck

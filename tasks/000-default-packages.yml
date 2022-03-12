@@ -54,5 +54,5 @@
   shell: "/bin/bash -c \"NONINTERACTIVE=1 $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
 
 - name: Update homebrew (step 4/4)
-  brew:
+  homebrew:
     update_homebrew: yes

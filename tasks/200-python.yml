@@ -6,7 +6,7 @@
     force: true
 
 - name: Install Python environments - Install pyenv (step 2/3)
-  brew:
+  homebrew:
     name: pyenv
     state: present
 

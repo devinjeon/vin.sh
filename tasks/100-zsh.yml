@@ -1,6 +1,6 @@
 ---
 - name: Install Oh My Zsh - install zsh (step 1/11)
-  brew:
+  homebrew:
     name: zsh
     state: present
 

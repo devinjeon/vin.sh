@@ -3,3 +3,9 @@
   homebrew:
     name: node
     state: present
+
+- name: Install prettier(html, js, css, etc ...) formatter
+  npm:
+    name: prettier
+    global: yes
+  become: true

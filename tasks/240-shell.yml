@@ -1,0 +1,8 @@
+- name: Install shellcheck
+  homebrew:
+    name:
+      - shellcheck
+    state: present
+
+- name: Install shell formatter
+  shell: zsh -c ". ~/.zshrc && go install mvdan.cc/sh/cmd/shfmt@latest"

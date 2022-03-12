@@ -12,4 +12,5 @@
   - import_tasks: tasks/200-python.yml
   - import_tasks: tasks/210-golang.yml
   - import_tasks: tasks/220-nodejs.yml
-  - import_tasks: tasks/290-code-formatters.yml
+  - import_tasks: tasks/230-clang.yml
+  - import_tasks: tasks/240-shell.yml

@@ -3,5 +3,4 @@
   homebrew:
     name:
       - ripgrep
-      - shellcheck
     state: present

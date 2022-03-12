@@ -1,0 +1,6 @@
+---
+- name: Install clang formatter
+  apt:
+    name: clang-format
+    state: latest
+  become: true

@@ -8,7 +8,7 @@
   - import_tasks: tasks/120-zsh.yml
   - import_tasks: tasks/130-tools.yml
   - import_tasks: tasks/150-docker.yml
-  - import_tasks: tasks/160-python-virtualenvwrapper.yml
+  - import_tasks: tasks/160-python.yml
   - import_tasks: tasks/170-tmux.yml
   - import_tasks: tasks/180-golang.yml
   - import_tasks: tasks/190-nodejs.yml

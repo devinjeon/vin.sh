@@ -1,5 +1,0 @@
-# virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export WORKON_HOME="$HOME/.virtualenv"
-mkdir -p "$WORKON_HOME"
-source /usr/local/bin/virtualenvwrapper.sh

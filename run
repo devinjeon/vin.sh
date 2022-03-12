@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Install packages, if dependencies are not installed.
+# Check if Ansible exists
+command -v ansible > /dev/null ||
+  (echo "'ansible' command not found. Use one of the following commands to install Ansible:
+  * pip install ansible
+  * sudo add-apt-repository --yes --update ppa:ansible/ansible && sudo apt install ansible
+  * brew install ansible"; exit 1)
+
 SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
-# shellcheck source=install-ansible
-source "$SCRIPT_DIR/install-ansible"
 
 # Enable Ansible logging
 mkdir -p log

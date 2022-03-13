@@ -50,6 +50,11 @@
     - mycli
   become: true
 
+- name: Make rc directory
+  file:
+    path: ~/.rc
+    state: directory
+
 - name: Install homebrew (step 3/5)
   shell: "/bin/bash -c \"NONINTERACTIVE=1 $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
 

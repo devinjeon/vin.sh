@@ -1,11 +1,11 @@
 ---
-- name: Install Node.js
-  homebrew:
-    name: node
-    state: present
+- name: Install Node.js - Add apt repository for Node.js (1/2)
+  shell: "curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -"
+  args:
+    warn: false
 
-- name: Install prettier(html, js, css, etc ...) formatter
-  npm:
-    name: prettier
-    global: yes
+- name: Install Node.js - Install Node.js package (step 1/2)
+  apt:
+    name: nodejs
+    state: latest
   become: true

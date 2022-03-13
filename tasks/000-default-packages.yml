@@ -56,13 +56,14 @@
 - name: Install homebrew (step 3/5)
   shell: "/bin/bash -c \"NONINTERACTIVE=1 $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
 
-- name: Update homebrew (step 4/5)
-  homebrew:
-    update_homebrew: yes
-
 - name: Create homebrew rc symbolic link (step 5/5)
   file:
     src: "{{ playbook_dir }}/rc/homebrew"
     dest: ~/.rc/homebrew
     state: link
     force: true
+
+- name: Update homebrew (step 4/5)
+  homebrew:
+    update_homebrew: yes
+    path: /home/linuxbrew/.linuxbrew/bin

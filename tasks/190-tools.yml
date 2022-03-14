@@ -3,4 +3,5 @@
   homebrew:
     name:
       - ripgrep
+      - fzf
     state: present

@@ -7,7 +7,9 @@
 
 - name: Install Python environments - Install pyenv (step 2/6)
   homebrew:
-    name: pyenv
+    name:
+      - pyenv
+      - pyenv-virtualenv
     state: present
 
 - name: Install Python environments - Install poetry (step 3/6)

@@ -3,7 +3,10 @@
 # pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
 fi
 
 # poetry
 export PATH="$HOME/.local/bin:$PATH"
+
+alias pv='pyenv virtualenv'

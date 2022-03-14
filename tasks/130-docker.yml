@@ -15,6 +15,10 @@
     state: absent
   become: true
 
+- name: Install docker - get current user name (step 2/11)
+  shell: whoami
+  register: username
+
 - name: Install docker - Append user to docker group (step 4/4)
-  shell: "usermod -aG docker $USER"
+  shell: "usermod -aG docker {{ username.stdout }}"
   become: true

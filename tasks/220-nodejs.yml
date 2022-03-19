@@ -1,14 +1,8 @@
 ---
-- name: Install Node.js - Add apt repository for Node.js (1/2)
-  shell: "curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -"
-  args:
-    warn: false
-
-- name: Install Node.js - Install Node.js package (step 1/2)
-  apt:
-    name: nodejs
+- name: Install Node.js - Install Node.js package
+  homebrew:
+    name: node
     state: latest
-  become: true
 
 # symlink rc/npm-global
 - name: Install Node.js - Create symlink rc file (step 2/2)

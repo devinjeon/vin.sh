@@ -1,9 +1,8 @@
 ---
 - name: Install Oh My Zsh - install zsh (step 1/11)
-  apt:
+  homebrew:
     name: zsh
     state: latest
-  become: true
 
 - name: Install Oh My Zsh - get current user name (step 2/11)
   shell: whoami

@@ -1,6 +1,5 @@
 ---
 - name: Install clang formatter
-  apt:
+  homebrew:
     name: clang-format
     state: latest
-  become: true

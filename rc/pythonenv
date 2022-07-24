@@ -9,4 +9,4 @@ command -v pyenv 1>/dev/null 2>&1 ||
 alias pe='pyenv'
 
 # poetry
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="/Users/user/Library/Python/3.9/bin:$PATH"

@@ -7,6 +7,9 @@
 export EDITOR="vim"
 export LANG="en_US.UTF-8"
 export LC_ALL=$LANG
+export HISTSIZE=100000
+export SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY
 
 export ORIGIN_PATH=$PATH
 

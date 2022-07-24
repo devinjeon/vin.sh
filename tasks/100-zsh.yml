@@ -60,3 +60,9 @@
     dest: ~/.zshrc
     state: link
     force: true
+
+- name: Install Oh My Zsh - Create directory rc files
+  file:
+    path: ~/.rc
+    state: directory
+    recurse: true

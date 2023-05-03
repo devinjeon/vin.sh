@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 export DEFAULT_GOPATH="$HOME/workspace/go"
 export GOPATH="$DEFAULT_GOPATH"
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$GOPATH/bin/darwin_amd64/
 
 setgopath() {
   TARGET_PATH="$1"

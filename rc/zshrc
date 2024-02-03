@@ -10,7 +10,7 @@ unset GOPATH
 export EDITOR="vim"
 export LANG="en_US.UTF-8"
 export LC_ALL=$LANG
-export HISTSIZE=100000
+export HISTSIZE=10000000
 export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 

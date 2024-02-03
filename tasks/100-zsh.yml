@@ -11,7 +11,7 @@
 - name: Install Oh My Zsh - set default shell to zsh (step 3/11)
   user:
     name: "{{ username.stdout }}"
-    shell: /usr/local/bin/zsh
+    shell: /opt/homebrew/bin/zsh
   become: true
 
 - name: Install Oh My Zsh - download oh-my-zsh (step 4/11)

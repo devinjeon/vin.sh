@@ -247,3 +247,6 @@ let g:esearch.textobj = 0
 let g:esearch.case    = 'smart'
 let g:esearch.prefill = ['hlsearch', 'last', 'clipboard']
 let g:esearch.root_markers = ['.git', 'Makefile']
+
+" fzf
+set rtp+=/opt/homebrew/opt/fzf

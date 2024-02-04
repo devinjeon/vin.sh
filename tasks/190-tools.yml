@@ -5,3 +5,10 @@
       - ripgrep
       - fzf
     state: present
+
+- name: Install tools for CLI environment - Copy env file for fzf
+  file:
+    src: "{{ playbook_dir }}/rc/fzf"
+    dest: ~/.rc/fzf
+    state: link
+    force: true

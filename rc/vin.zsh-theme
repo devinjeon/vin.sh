@@ -30,37 +30,54 @@ prompt_user() {
 }
 
 prompt_dir() {
-  # ~/.oh-my-zsh/custom
-  echo -n "%1~"
+  local dir="$PWD"
+  local home="$HOME"
+  local root="/"
+
+  if [[ "$dir" == "$home"* ]]; then
+    dir="~${dir#$home}"
+    root="~/"
+  fi
+
+  local -a path_parts
+  path_parts=("${(@s:/:)dir}")
+  local depth=${#path_parts}
+
+  if (( depth > 3 )); then
+    echo -n "${root}.../${path_parts[-1]}"
+  else
+    echo -n "$dir"
+  fi
 }
 
 prompt_git() {
-  # :develop (only in git repo)
-  if ! git rev-parse 2>/dev/null
-  then
-    return
-  fi
+  # Git 저장소 내부인지 확인
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    local git_repo git_branch git_tag git_commit
 
-  local git_branch
-  git_branch="$(git symbolic-ref -q --short HEAD 2>/dev/null)"
-  if [[ -n "$git_branch" ]]
-  then
-    echo -n "%F{magenta}:$git_branch%f"
-    return
-  fi
+    # Git 저장소 이름 가져오기
+    git_repo=$(basename "$(git rev-parse --show-toplevel)")
 
-  local git_tag
-  git_tag="$(git describe --tags 2>/dev/null)"
-  if [[ -n "$git_tag" ]]
-  then
-    echo -n "%F{red}:$git_tag%f"
-    return
-  fi
+    # 현재 브랜치 가져오기
+    git_branch=$(git symbolic-ref -q --short HEAD 2>/dev/null)
+    if [[ -n "$git_branch" ]]; then
+      echo -n ":%F{magenta}[$git_repo]%f%F{cyan}$git_branch%f"
+      return
+    fi
 
-  local git_commit
-  git_commit="$(git show-ref --head -s --abbrev | head -n1)"
-  echo -n "%F{yellow}:$git_commit%f"
+    # 태그 가져오기
+    git_tag=$(git describe --tags 2>/dev/null)
+    if [[ -n "$git_tag" ]]; then
+      echo -n "%F{red}[$git_repo]%f%F{yellow}$git_tag%f"
+      return
+    fi
+
+    # 커밋 해시 가져오기
+    git_commit=$(git rev-parse --short HEAD 2>/dev/null)
+    echo -n "%F{yellow}[$git_repo]%f%F{green}$git_commit%f"
+  fi
 }
+
 
 prompt_end() {
   # ¶ (for root)

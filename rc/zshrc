@@ -4,6 +4,9 @@
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 # Configure the system.
+unset GOARCH
+unset GOROOT
+unset GOPATH
 export EDITOR="vim"
 export LANG="en_US.UTF-8"
 export LC_ALL=$LANG

@@ -21,14 +21,6 @@ prompt_status() {
   echo -n "%(?::%F{red}✘%f)"
 }
 
-prompt_user() {
-  # sub@fantine❯
-  if [[ $UID -ne 0 ]]
-  then
-    echo -n "%F{green}%n@%m%F{cyan}❯%f"
-  fi
-}
-
 prompt_dir() {
   local dir="$PWD"
   local home="$HOME"
@@ -93,7 +85,6 @@ prompt_end() {
 # 23:14✘sub@fantine❯~/.oh-my-zsh/custom:develop❯
 build_prompt() {
   prompt_status
-  prompt_user
   prompt_dir
   prompt_git
   prompt_end

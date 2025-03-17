@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 export DEFAULT_GOPATH="$HOME/workspace/go"
 export GOPATH="$DEFAULT_GOPATH"
-export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 setgopath() {

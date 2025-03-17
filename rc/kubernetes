@@ -3,6 +3,15 @@
 # kubectl krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+# kubeconfigs
+KUBECONFIG=~/.kube/config
+for file in ~/.kube/config-*; do
+    if [[ -f "$file" ]]; then
+        KUBECONFIG="$KUBECONFIG:$file"
+    fi
+done
+export KUBECONFIG
+
 # kubectl autocomplete
 alias k='kubectl'
 complete -F __start_kubectl k

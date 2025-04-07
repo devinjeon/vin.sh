@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+install_ansible() {
+  echo "It requires to install 'Ansible'."
+  echo "Installing 'Ansible' ..."
+  sudo yum install -y ansible 1> /dev/null &&
+    echo "'Ansible' installation completed."
+}
+
+# Install `ansible`
+command -v ansible > /dev/null || install_ansible

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+alias vim='nvim'
+alias vimdiff='nvim -d'
+export EDITOR='nvim'
+export VISUAL='nvim'

@@ -26,6 +26,20 @@
     state: link
     force: true
 
+- name: Install Vim - create nvim symbolic link (step 4/7)
+  file:
+    src: "{{ playbook_dir }}/rc/nvim"
+    dest: ~/.config/nvim
+    state: link
+    force: true
+
+- name: Install Vim - create nvim symbolic link (step 4/7)
+  file:
+    src: "{{ playbook_dir }}/rc/nvim/env"
+    dest: ~/.rc/nvim
+    state: link
+    force: true
+
 - name: Install Vim - make vim-plug directory (step 5/7)
   file:
     path: ~/.vim/autoload

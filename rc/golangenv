@@ -1,18 +1,25 @@
 #!/usr/bin/env bash
-export DEFAULT_GOPATH="$HOME/workspace/go"
-export GOPATH="$DEFAULT_GOPATH"
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-setgopath() {
-  TARGET_PATH="$1"
-  if [ -z "$TARGET_PATH" ]; then
-    export GOPATH="$PWD"
-  else
-    export GOPATH="$TARGET_PATH"
+# Check if GVM is installed
+if ! command -v gvm &> /dev/null; then
+  # Detect operating system
+  OS_TYPE="$(uname)"
+
+  if [ "$OS_TYPE" = "Darwin" ]; then
+    # If macOS, check if Go is installed
+    if ! command -v go &> /dev/null; then
+      echo "Go (Golang) is not installed."
+      echo "Please install Go before running this script."
+      echo "Download Go from: https://go.dev/dl/"
+      exit 1
+    fi
   fi
-  echo "* Set GOPATH=$GOPATH"
-}
 
-resetgopath() {
-  setgopath "$DEFAULT_GOPATH"
-}
+  # Install GVM
+  echo "GVM is not installed. Proceeding with installation..."
+  bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+else
+  echo "GVM is already installed."
+fi
+
+[[ -e "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"

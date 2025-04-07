@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if [[ -e "$HOME/.gvm/scripts/gvm" ]]; then
+  source "$HOME/.gvm/scripts/gvm"
+fi
+
 # Check if GVM is installed
 if ! command -v gvm &> /dev/null; then
   # Detect operating system
@@ -9,7 +13,6 @@ if ! command -v gvm &> /dev/null; then
     # If macOS, check if Go is installed
     if ! command -v go &> /dev/null; then
       echo "Go (Golang) is not installed."
-      echo "Please install Go before running this script."
       echo "Download Go from: https://go.dev/dl/"
       exit 1
     fi
@@ -18,8 +21,5 @@ if ! command -v gvm &> /dev/null; then
   # Install GVM
   echo "GVM is not installed. Proceeding with installation..."
   bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-else
-  echo "GVM is already installed."
+  source "$HOME/.gvm/scripts/gvm"
 fi
-
-[[ -e "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"

@@ -11,4 +11,5 @@
       - kubectl
       - kubectx
       - k9s
+      - stern
     state: present

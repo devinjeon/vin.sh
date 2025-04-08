@@ -3,7 +3,7 @@
 - name: Create gitenv symbolic link
   file:
     src: "{{ playbook_dir }}/rc/gitenv"
-    dest: ~/.rc/gitenv
+    dest: ~/.rc/100-gitenv
     state: link
     force: true
 

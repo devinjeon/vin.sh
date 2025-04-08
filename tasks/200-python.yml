@@ -1,7 +1,7 @@
-- name: Install Python environments - Copy env file (step 1/6)
+- name: Install Python environments - Create symlink rc/pythonenv file (step 1/6)
   file:
     src: "{{ playbook_dir }}/rc/pythonenv"
-    dest: ~/.rc/pythonenv
+    dest: ~/.rc/100-pythonenv
     state: link
     force: true
 

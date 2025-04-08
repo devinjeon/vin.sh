@@ -9,3 +9,11 @@
     name: nodejs
     state: latest
   become: true
+
+# symlink rc/npm-global
+- name: Install Node.js - Create symlink rc file (step 2/2)
+  file:
+    src: "{{ playbook_dir }}/rc/npm-global"
+    dest: ~/.rc/100-npm-global
+    state: link
+    force: true

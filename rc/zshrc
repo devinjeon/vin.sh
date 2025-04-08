@@ -49,7 +49,9 @@ fi
 autoload bashcompinit && bashcompinit
 # Activate rc files
 mkdir -p "$HOME/.rc"
-for p in $(find "$HOME/.rc/" -not -type d); do
+
+# sorted rc files
+for p in $(find "$HOME/.rc/" -not -type d | sort); do
   source "$p"
 done
 

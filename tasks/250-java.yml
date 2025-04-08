@@ -4,7 +4,7 @@
   args:
     executable: /bin/bash
   register: sdkman_install
-  changed_when: sdkman_install.stdout | search("All done!")
+  changed_when: sdkman_install.stdout is search("All done!")
 
 - name: Install sdkman - Create java rc symbolic link (step 2/2)
   file:

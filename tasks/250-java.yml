@@ -1,0 +1,14 @@
+- name: Install sdkman - Install sdkman (step 1/2)
+  shell: |
+    curl -s "https://get.sdkman.io" | bash
+  args:
+    executable: /bin/bash
+  register: sdkman_install
+  changed_when: sdkman_install.stdout | search("All done!")
+
+- name: Install sdkman - Create java rc symbolic link (step 2/2)
+  file:
+    src: "{{ playbook_dir }}/rc/java"
+    dest: ~/.rc/100-java
+    state: link
+    force: true

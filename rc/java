@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+[[ -e "$HOME/.sdkman/bin/sdkman-init.sh" ]] && \
+  source "/Users/user/.sdkman/bin/sdkman-init.sh"

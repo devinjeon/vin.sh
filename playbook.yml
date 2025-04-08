@@ -16,3 +16,4 @@
   - import_tasks: tasks/240-shell.yml
   - import_tasks: tasks/250-java.yml
   - import_tasks: tasks/300-kubernetes.yml
+  - import_tasks: tasks/400-ai-tools.yml

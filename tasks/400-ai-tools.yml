@@ -1,16 +1,9 @@
 # lazyshell
-- name: Install lazyshell - Download lazyshell.zsh (step 1/2)
+- name: Install lazyshell - Download lazyshell.zsh
   get_url:
     url: https://raw.githubusercontent.com/devinjeon/lazyshell/refs/tags/v0.1.0/lazyshell.zsh
     dest: ~/.lazyshell.zsh
     mode: '0644'
-
-- name: Install lazyshell - Create symlink rc file (step 2/2)
-  file:
-    src: "{{ playbook_dir }}/rc/lazyshell"
-    dest: ~/.rc/100-lazyshell
-    state: link
-    force: true
 
 # kubectl-gpt
 - name: Install kubectl-gpt - Tap devinjeon/kubectl-gpt (step 1/2)

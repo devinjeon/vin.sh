@@ -1,11 +1,4 @@
-- name: Install Kubernetes environments - Copy env file (step 1/2)
-  file:
-    src: "{{ playbook_dir }}/rc/kubernetes"
-    dest: ~/.rc/100-kubernetes
-    state: link
-    force: true
-
-- name: Install Kubernetes environments - Install tools (step 2/2)
+- name: Install Kubernetes environments - Install tools
   homebrew:
     name:
       - kubectl

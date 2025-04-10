@@ -1,0 +1,12 @@
+- name: Merge rc files with rc/merge.sh
+  delegate_to: localhost
+  run_once: true
+  shell: "{{ playbook_dir }}/merge-rc.sh"
+
+# ---
+- name: Create symbolic link for merged rc file
+  file:
+    src: "{{ playbook_dir }}/vin.rc.merged"
+    dest: ~/.rc/vin.rc
+    state: link
+    force: true

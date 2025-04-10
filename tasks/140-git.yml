@@ -1,15 +1,15 @@
 ---
 
-- name: Create gitenv symbolic link
-  file:
-    src: "{{ playbook_dir }}/rc/gitenv"
-    dest: ~/.rc/100-gitenv
-    state: link
-    force: true
-
 - name: Create gitalias symbolic link
   file:
     src: "{{ playbook_dir }}/rc/git-aliases"
     dest: ~/.git-aliases
+    state: link
+    force: true
+
+- name: Create gitconfig symbolic link
+  file:
+    src: "{{ playbook_dir }}/rc/gitconfig"
+    dest: ~/.gitconfig
     state: link
     force: true

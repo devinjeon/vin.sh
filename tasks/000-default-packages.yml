@@ -16,6 +16,8 @@
       - gnu-sed
       - gnu-tar
       - gh
+      - ripgrep
+      - fzf
     state: latest
     update_homebrew: yes
 

@@ -1,8 +1,2 @@
 ---
 # Golang should be installed from https://go.dev/dl/go1.17.8.darwin-amd64.pkg
-- name: Install GoLang - Copy golangenv file to set environments for Go
-  file:
-    src: "{{ playbook_dir }}/rc/golangenv"
-    dest: ~/.rc/100-golangenv
-    state: link
-    force: true

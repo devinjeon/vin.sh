@@ -1,0 +1,9 @@
+# Fast Git completion: https://superuser.com/questions/458906
+__git_files() {
+  _wanted files expl 'local files' _files
+}
+
+# git ignore maker
+function gi() {
+    curl -sL https://www.gitignore.io/api/$@
+}

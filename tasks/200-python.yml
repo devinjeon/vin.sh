@@ -1,31 +1,24 @@
-- name: Install Python environments - Create symlink rc/pythonenv file (step 1/6)
-  file:
-    src: "{{ playbook_dir }}/rc/pythonenv"
-    dest: ~/.rc/100-pythonenv
-    state: link
-    force: true
-
-- name: Install Python environments - Install pyenv (step 2/6)
+- name: Install Python environments - Install pyenv (step 1/5)
   homebrew:
     name:
       - pyenv
     state: present
 
-- name: Install Python environments - Install poetry (step 3/6)
+- name: Install Python environments - Install poetry (step 2/5)
   shell: "curl -sSL https://install.python-poetry.org | python3 -"
 
-- name: Install python formatter (step 4/6)
+- name: Install python formatter (step 3/5)
   pip:
     name: yapf
     executable: pip3
   become: true
 
-- name: Install python formatter - Make yapf config dir (step 5/6)
+- name: Install python formatter - Make yapf config dir (step 4/5)
   file:
     path: ~/.config/yapf
     state: directory
 
-- name: Install python formatter - Create yapf default config symbolic link (step 6/6)
+- name: Install python formatter - Create yapf default config symbolic link (step 5/5)
   file:
     src: "{{ playbook_dir }}/rc/yapf_config"
     dest: ~/.config/yapf/style

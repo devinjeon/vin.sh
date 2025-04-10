@@ -168,3 +168,4 @@ Temporary Items
 test/
 *.swp
 log/
+vin.rc.merged

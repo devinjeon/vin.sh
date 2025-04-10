@@ -1,0 +1,10 @@
+[core]
+	autocrlf = input
+	editor = vim
+[merge]
+	tool = vimdiff
+[include]
+	path = /Users/devin/.git-aliases
+[user]
+	name = Hyojun Jeon
+	email = hyojun.jeon@navercorp.com

@@ -12,6 +12,17 @@ return {
 			lspconfig.lua_ls.setup({})
 			lspconfig.gopls.setup({})
 			lspconfig.pylsp.setup({})
+			lspconfig.bashls.setup({})
+			lspconfig.cssls.setup({})
+			lspconfig.css_variables.setup({})
+			lspconfig.docker_compose_language_service.setup({})
+			lspconfig.dockerls.setup({})
+			lspconfig.eslint.setup({})
+			lspconfig.golangci_lint_ls.setup({})
+			lspconfig.helm_ls.setup({})
+			lspconfig.html.setup({})
+			lspconfig.jsonls.setup({})
+			-- lspconfig.yamlls.setup({})
 		end,
 	},
 	{
@@ -22,26 +33,24 @@ return {
 			-- cfg options
 		},
 		config = function()
-			local golang_setup = {
+			local signature = {
 				on_attach = function(client, bufnr)
 					require("lsp_signature").on_attach(signature_setup, bufnr) -- Note: add in lsp client on-attach
 				end,
 			}
-			require("lspconfig").gopls.setup(golang_setup)
-
-			local python_setup = {
-				on_attach = function(client, bufnr)
-					require("lsp_signature").on_attach(signature_setup, bufnr) -- Note: add in lsp client on-attach
-				end,
-			}
-			require("lspconfig").pylsp.setup(python_setup)
-
-			local lua_setup = {
-				on_attach = function(client, bufnr)
-					require("lsp_signature").on_attach(signature_setup, bufnr) -- Note: add in lsp client on-attach
-				end,
-			}
-			require("lspconfig").lua_ls.setup(lua_setup)
+			require("lspconfig").lua_ls.setup(signature)
+			require("lspconfig").gopls.setup(signature)
+			require("lspconfig").pylsp.setup(signature)
+			require("lspconfig").bashls.setup(signature)
+			require("lspconfig").cssls.setup(signature)
+			require("lspconfig").css_variables.setup(signature)
+			require("lspconfig").docker_compose_language_service.setup(signature)
+			require("lspconfig").dockerls.setup(signature)
+			require("lspconfig").eslint.setup(signature)
+			require("lspconfig").golangci_lint_ls.setup(signature)
+			require("lspconfig").helm_ls.setup(signature)
+			require("lspconfig").html.setup(signature)
+			require("lspconfig").jsonls.setup(signature)
 		end,
 	},
 }

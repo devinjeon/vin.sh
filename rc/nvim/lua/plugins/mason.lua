@@ -21,6 +21,7 @@ return {
 					"gotests", -- to check
 					"gofumpt", -- to check
 					"goimports",
+					"golangci-lint-langserver",
 
 					-- shell
 					{ "bash-language-server", auto_update = true },
@@ -44,13 +45,28 @@ return {
 
 					-- javascript
 					"prettier",
+					"eslint-lsp",
 
 					-- yaml
+					"yaml-language-server",
+					"yamllint",
 					"yamlfmt",
 					"yamlfix",
 
 					-- makefile
 					"checkmake",
+
+					-- html
+					"html-lsp",
+					"css-lsp",
+					"css-variables-language-server",
+
+					-- helm
+					"helm-ls",
+
+					-- docker
+					"dockerfile-language-server",
+					"docker-compose-language-service",
 				},
 			})
 		end,

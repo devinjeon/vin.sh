@@ -21,7 +21,7 @@ return {
 					"gotests", -- to check
 					"gofumpt", -- to check
 					"goimports",
-					"golangci-lint-langserver",
+					-- "golangci-lint-langserver", -- too heavy
 
 					-- shell
 					{ "bash-language-server", auto_update = true },

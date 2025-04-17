@@ -44,10 +44,13 @@ for p in $(find "$HOME/.rc/" -not -type d | sort); do
   source "$p"
 done
 
-export SETUP_COMPLETION=true
-
 # Prevent terminal emulator from executing Tmux automatically
 # e.g.) TERMINAL_EMULATOR=JetBrains-JediTerm (on IntelliJ)
+
+# In VSCode, tmux session is not automatically created
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  export TERMINAL_EMULATOR="vscode"
+fi
 if [[ -z "$TMUX" && -z "$TERMINAL_EMULATOR" ]]; then
   session="default"
   (tmux has-session -t "$session" && tmux attach -t "$session") || tmux new -s "$session"
